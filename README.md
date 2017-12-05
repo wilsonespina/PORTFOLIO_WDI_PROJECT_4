@@ -17,3 +17,8 @@ After that simply `git commit` and `git push heroku master`.
 Ensure that you add any relevant environment variables to heroku with `heroku config:set`, eg:
 
 `heroku config:set AWS_BUCKET_NAME=wdi-project-4`
+
+
+### Initial Sketch
+
+![Initial Sketch](src/assets/readme-pics/initial_sketch1.jpg)
