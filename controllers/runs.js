@@ -1,5 +1,5 @@
 const Run = require('../models/run');
-require('../models/shape');
+// require('../models/shape');
 
 function runsIndex(req, res, next) {
   Run
@@ -10,15 +10,15 @@ function runsIndex(req, res, next) {
     .catch(next);
 }
 
-function runsCreate(req, res) {
+function runsCreate(req, res, next) {
 //inject neccessary info into req.body
   Run
     .create(req.body)
     .then(run => res.status(201).json(run))
-    .catch(() => res.status(500).json({ message: 'Something went wrong.' }));
+    .catch(next);
 }
 
-function runsShow(req, res) {
+function runsShow(req, res, next) {
   Run
     .findById(req.params.id)
     .populate('user')
@@ -27,11 +27,11 @@ function runsShow(req, res) {
       if(!run) return res.notFound();
       res.json(run);
     })
-    .catch(() => res.status(500).json({ message: 'Something went wrong.' }));
+    .catch(next);
 
 }
 
-function runsUpdate(req, res) {
+function runsUpdate(req, res, next) {
 
   Run
     .findById(req.params.id)
@@ -42,10 +42,10 @@ function runsUpdate(req, res) {
       return run.save();
     })
     .then(run => res.json(run))
-    .catch(() => res.status(500).json({ message: 'Something went wrong.' }));
+    .catch(next);
 }
 
-function runsDelete(req, res) {
+function runsDelete(req, res, next) {
   Run
     .findById(req.params.id)
     .exec()
@@ -54,7 +54,7 @@ function runsDelete(req, res) {
       return run.remove();
     })
     .then(() => res.status(204).end())
-    .catch(() => res.status(500).json({ message: 'Something went wrong.' }));
+    .catch(next);
 }
 
 module.exports = {
