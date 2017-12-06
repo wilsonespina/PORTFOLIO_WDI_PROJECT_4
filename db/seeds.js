@@ -58,7 +58,7 @@ User.create([
       },
       {
         name: 'Cat',
-        image: 'https://pixabay.com/p-2798822/?no_redirect'
+        image: 'https://i.pinimg.com/736x/b5/a5/fc/b5a5fcfe367dde3c94ae7cbb5cd5ebb2--free-applique-patterns-applique-templates.jpg'
       },
       {
         name: 'Bird',
@@ -108,6 +108,9 @@ User.create([
           }
         ]);
       });
+
+
+      
   })
 
   .then(Runs => console.log(`${Runs.length} runs created`))

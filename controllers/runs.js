@@ -21,7 +21,7 @@ function runsCreate(req, res, next) {
 function runsShow(req, res, next) {
   Run
     .findById(req.params.id)
-    .populate('user')
+    .populate('user shape comments.createdBy')
     .exec()
     .then((run) => {
       if(!run) return res.notFound();

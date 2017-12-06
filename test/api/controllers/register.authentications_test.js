@@ -2,7 +2,7 @@
 require('../helper');
 const User = require('../../../models/user');
 
-describe('User register authentication testing', function() {
+describe('User register authentication', function() {
   beforeEach(done => {
     User.collection.remove();
     done();

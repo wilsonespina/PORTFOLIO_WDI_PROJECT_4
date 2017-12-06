@@ -20,14 +20,6 @@ if('test' !== env) app.use(morgan('dev'));
 app.use(express.static(`${__dirname}/public`));
 app.use(bodyParser.json());
 
-// app.use('/api', expressJWT({ secret: secret })
-//   .unless({
-//     path: [
-//       { url: '/api/register', methods: ['POST'] },
-//       { url: '/api/login',    methods: ['POST'] }
-//     ]
-//   }));
-
 app.use(customResponses);
 app.use('/api', router);
 app.get('/*', (req, res) => res.sendFile(`${__dirname}/public/index.html`));
