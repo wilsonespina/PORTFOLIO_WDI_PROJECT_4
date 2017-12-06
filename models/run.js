@@ -18,7 +18,6 @@ commentSchema.methods.belongsTo = function commentsBelongsTo(user) {
 
 const runSchema = new mongoose.Schema({
   user: { type: mongoose.Schema.ObjectId, ref: 'User' },
-  stravaId: { type: mongoose.Schema.ObjectId, ref: 'stavaId' },
   rating: { type: Number, trim: true },
   date: { type: String, trim: true },
   shape: { type: mongoose.Schema.ObjectId, ref: 'Shape' },

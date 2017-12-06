@@ -8,8 +8,8 @@ mongoose.plugin(require('mongoose-unique-validator'));
 
 const morgan = require('morgan');
 const bodyParser = require('body-parser');
-const { port, dbURI, env, secret } = require('./config/environment');
-const expressJWT = require('express-jwt');
+const { port, dbURI, env } = require('./config/environment');
+// const expressJWT = require('express-jwt');
 const router = require('./config/routes');
 const customResponses = require('./lib/customResponses');
 const errorHandler = require('./lib/errorHandler');
@@ -20,13 +20,13 @@ if('test' !== env) app.use(morgan('dev'));
 app.use(express.static(`${__dirname}/public`));
 app.use(bodyParser.json());
 
-app.use('/api', expressJWT({ secret: secret })
-  .unless({
-    path: [
-      { url: '/api/register', methods: ['POST'] },
-      { url: '/api/login',    methods: ['POST'] }
-    ]
-  }));
+// app.use('/api', expressJWT({ secret: secret })
+//   .unless({
+//     path: [
+//       { url: '/api/register', methods: ['POST'] },
+//       { url: '/api/login',    methods: ['POST'] }
+//     ]
+//   }));
 
 app.use(customResponses);
 app.use('/api', router);

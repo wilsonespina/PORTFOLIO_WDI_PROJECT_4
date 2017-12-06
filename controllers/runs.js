@@ -1,13 +1,13 @@
 const Run = require('../models/run');
+require('../models/shape');
 
-function runsIndex(req, res) {
+function runsIndex(req, res, next) {
   Run
     .find()
+    .populate('user shape comments.createdBy')
     .exec()
     .then(runs => res.json(runs))
-    .catch(() =>
-      res.status(500).json({ message: 'Something went wrong with the server' })
-    );
+    .catch(next);
 }
 
 function runsCreate(req, res) {
@@ -21,6 +21,7 @@ function runsCreate(req, res) {
 function runsShow(req, res) {
   Run
     .findById(req.params.id)
+    .populate('user')
     .exec()
     .then((run) => {
       if(!run) return res.notFound();

@@ -9,8 +9,8 @@ const Run = require('../models/run');
 const Shape = require('../models/shape');
 
 User.collection.drop();
-Run.collection.drop();
 Shape.collection.drop();
+Run.collection.drop();
 
 User.create([
   {
@@ -51,33 +51,6 @@ User.create([
 ])
   .then(Users => {
     console.log(`${Users.length} new users added`);
-    return Run.create([
-      {
-        user: Users[0],
-        stravaId: Users[0].stavaId,
-        rating: 3.5,
-        date: '2017-12-13T18:00:00Z',
-        shape: Shape[0],
-        comments: {
-          content: 'Great run yo!',
-          createdBy: Users[0].username
-        }
-      },
-      {
-        user: Users[1],
-        stravaId: Users[1].stavaId,
-        rating: 4.5,
-        date: '2017-12-14T18:00:00Z',
-        shape: Shape[1],
-        comments: {
-          content: 'You did great',
-          createdBy: Users[1].username
-        }
-      }
-    ]);
-  })
-  .then(Runs => {
-    console.log(`${Runs.length} new runs added`);
     return Shape.create([
       {
         name: 'Rabbit',
@@ -103,9 +76,40 @@ User.create([
         name: 'Sea Horse',
         image: 'https://i.pinimg.com/736x/e2/8a/61/e28a6139ea98a64e5c2b82afb149a175--animal-templates-design-templates.jpg'
       }
-    ]);
+    ])
+      .then(Shape => {
+        console.log(`${Shape.length} new shapes added`);
+        return Run.create([
+          {
+            user: Users[1],
+            rating: 3.5,
+            date: '2017-12-13T18:00:00Z',
+            shape: Shape[0],
+            comments: [{
+              content: 'Great run yo!',
+              createdBy: Users[2]
+            }, {
+              content: 'Fantastic!',
+              createdBy: Users[3]
+            }]
+          },
+          {
+            user: Users[0],
+            rating: 4.5,
+            date: '2017-12-14T18:00:00Z',
+            shape: Shape[1],
+            comments: [{
+              content: 'You did great',
+              createdBy: Users[3]
+            }, {
+              content: 'Brill',
+              createdBy: Users[4]
+            }]
+          }
+        ]);
+      });
   })
 
-  .then(shapes => console.log(`${shapes.length} shapes created`))
+  .then(Runs => console.log(`${Runs.length} runs created`))
   .catch(err => console.log(err))
   .finally(() => mongoose.connection.close());

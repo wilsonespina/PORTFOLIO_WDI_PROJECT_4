@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const shapeSchema = mongoose.Schema({
-  name: { type: String, required: 'Title is required' },
+  name: { type: String, required: 'Name is required' },
   image: { type: String, required: 'Image is required' }
 });
 
