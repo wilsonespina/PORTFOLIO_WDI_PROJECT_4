@@ -1,8 +1,8 @@
 const router = require('express').Router();
 const runs  = require('../controllers/runs');
 const auth  = require('../controllers/auth');
-const oauth  = require('../controllers/oauth');
-const secureRoute = require('../lib/secureRoute');
+// const oauth  = require('../controllers/oauth');
+// const secureRoute = require('../lib/secureRoute');
 
 router.route('/runs')
   .get(runs.index)
