@@ -17,7 +17,7 @@ class App extends React.Component {
       <Router>
         <div className="container">
           <header>
-            <Link to="/"><h1>trace</h1></Link>
+            <Link to="/"><h1>TRACE</h1></Link>
             <Navbar />
           </header>
           <main>

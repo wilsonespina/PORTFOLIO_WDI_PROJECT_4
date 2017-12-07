@@ -32,17 +32,16 @@ class RunsIndex extends React.Component {
     // const regex = new RegExp(search, 'i');
     // const filterSort = _.orderBy(this.state.runs);
     // const sorted = _.filter(filterSort, (run) => regex.test([run.breed]));
-    console.log(this.state.runs);
+console.log(this.state.runs);
+
     return (
       <div>
         <div className="row">
-          {/* <div className="col-md-12">
-            <SearchBar handleSearch={ this.handleSearch } />
-            <Link to="/runs/new" className="btn btn-info index-add-button">
-              <i className="fa fa-plus" aria-hidden="true"></i>Add a Run
-            </Link>
-          </div> */}
-
+          <h1>Community Runs</h1>
+          <h2>Shape of the week</h2>
+          { this.state.runs[0] && <img src={this.state.runs[0].shape.image} className="run-index-shape-of-week"/>}
+        </div>
+        <div className="row">
           { this.state.runs.map(run => {
             return(
               <div key={run.id} className="image-tile col-md-4 col-sm-6 col-xs-12">
@@ -51,11 +50,10 @@ class RunsIndex extends React.Component {
                 </Link>
                 <p><strong>{run.date}</strong></p>
                 <p>Shape: {run.shape.name}</p>
-                {run.shape.image && <img src={run.shape.image} />}
+                {run.shape.image && <img src={run.shape.image} className="run-index-img-tile"/>}
               </div>
             );
           })}
-
         </div>
       </div>
     );

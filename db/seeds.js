@@ -81,29 +81,45 @@ User.create([
         console.log(`${Shape.length} new shapes added`);
         return Run.create([
           {
-            user: Users[1],
+            user: Users[0],
             rating: 3.5,
             date: '2017-12-13T18:00:00Z',
             shape: Shape[0],
+            summary_polyline: 'qcsyHxzRiOqJcAh@k@xGlI~CdGdNtDQjF{Fy\\iSu@pG|HtCpGjN|DOvEyEmA_DuYgO}@|GfHvBo@xOcIdD_A`WgBjA',
             comments: [{
               content: 'Great run yo!',
-              createdBy: Users[2]
+              createdBy: Users[1]
             }, {
               content: 'Fantastic!',
-              createdBy: Users[3]
+              createdBy: Users[2]
             }]
           },
           {
-            user: Users[0],
+            user: Users[1],
             rating: 4.5,
             date: '2017-12-14T18:00:00Z',
             shape: Shape[1],
+            summary_polyline: 'wbtyHhqSw[tIe_@qEoDkI_HuAq_@mh@mK`IaDnM~@dHrDlGzPdAtMsBbIjBcFsK_Xi^eF~AsIfPTtIjEjIf_@KrGzBxJgC~DtHbZmHzDhNvQaC',
             comments: [{
               content: 'You did great',
               createdBy: Users[3]
             }, {
               content: 'Brill',
               createdBy: Users[4]
+            }]
+          },
+          {
+            user: Users[2],
+            rating: 4.1,
+            date: '2017-10-14T18:00:00Z',
+            shape: Shape[2],
+            summary_polyline: 'kxsyHrbT[iKoCwEa_@`HqIu[iGxB_CtD{IyEsFhKmo@o@uEuEmAwM|G{ObDkCbEHp^fh@|CbBxBeBdCzFxEdAfUyIhEpNdBw@',
+            comments: [{
+              content: 'FAB',
+              createdBy: Users[4]
+            }, {
+              content: 'Awesome running skills',
+              createdBy: Users[0]
             }]
           }
         ]);
