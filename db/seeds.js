@@ -16,35 +16,35 @@ User.create([
   {
     username: 'mickeysausage',
     email: 'mickey1@mickey.com',
-    stravaId: '227615',
+    stravaId: '21848',
     password: 'password',
     passwordConfirmation: 'password'
   },
   {
     username: 'sallysaunders',
     email: 'sally1@sally.com',
-    stravaId: '227615',
+    stravaId: '21848',
     password: 'password',
     passwordConfirmation: 'password'
   },
   {
     username: 'egbertz',
     email: 'eggbert1@eggbert.com',
-    stravaId: '227615',
+    stravaId: '21848',
     password: 'password',
     passwordConfirmation: 'password'
   },
   {
     username: 'lucygoosey',
     email: 'lucy1@lucy.com',
-    stravaId: '227615',
+    stravaId: '21848',
     password: 'password',
     passwordConfirmation: 'password'
   },
   {
     username: 'daveyravey',
     email: 'davey1@davey.com',
-    stravaId: '227615',
+    stravaId: '21848',
     password: 'password',
     passwordConfirmation: 'password'
   }
@@ -110,7 +110,7 @@ User.create([
       });
 
 
-      
+
   })
 
   .then(Runs => console.log(`${Runs.length} runs created`))
