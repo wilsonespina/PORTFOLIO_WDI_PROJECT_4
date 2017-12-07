@@ -54,7 +54,7 @@ User.create([
     return Shape.create([
       {
         name: 'Rabbit',
-        image: 'http://www.clker.com/cliparts/c/1/D/z/j/6/bunny-outline-md.png'
+        image: 'https://i.pinimg.com/originals/b8/96/43/b896431e1d6c56598ee255bef91b351c.jpg'
       },
       {
         name: 'Cat',

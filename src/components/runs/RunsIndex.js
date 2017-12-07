@@ -54,7 +54,8 @@ console.log(this.state.runs);
                 <p><strong>Start Date: {(run.date).substring(0, 10)}</strong></p>
                 <p><strong>Start Time: {(run.date).substring(11, 16)}</strong></p>
                 <p>Shape: {run.shape.name}</p>
-                {run.shape.image && <img src={run.shape.image} className="run-index-img-tile"/>}
+                {run.shape.image &&
+                  <img src={run.shape.image} className="run-index-img-tile"/>}
                 <GoogleMap center={this.state.center} />
               </div>
             );

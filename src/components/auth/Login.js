@@ -42,7 +42,7 @@ class Login extends React.Component {
           handleChange={this.handleChange}
           handleSubmit={this.handleSubmit}
         />
-        <OAuthButton provider="strava">Login with Strava</OAuthButton>
+        <OAuthButton provider="strava"><span className="icon"></span> Login with Strava</OAuthButton>
       </div>
     );
   }
