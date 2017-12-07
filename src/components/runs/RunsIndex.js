@@ -14,7 +14,6 @@ class RunsIndex extends React.Component {
 
   componentWillMount() {
     Axios
-      // .get('/api/runs')
       .get('/api/runs', {
         headers: { Authorization: `Bearer ${Auth.getStravaToken()}`}
       })

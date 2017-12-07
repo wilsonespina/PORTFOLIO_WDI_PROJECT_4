@@ -19,7 +19,7 @@ const Routes = () => {
     <Switch>
       <Route path="/login" component={Login} />
       <Route path="/register" component={Register} />
-      <Route path="/runs" component={RunsIndex} />
+      <Route exact path="/" component={RunsIndex} />
       <Route path="/users/:id" component={UsersShow} />
       <Route path="/users" component={UsersIndex} />
       {/* <ProtectedRoute path="/runs/new" component={RunsNew} />

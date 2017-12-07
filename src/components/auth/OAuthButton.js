@@ -18,7 +18,10 @@ class OAuthButton extends React.Component {
     data.redirectUri = window.location.origin + window.location.pathname;
 
     axios.post(this.provider.url, data)
-      .then(res => Auth.setToken(res.data.token))
+      .then(res => {
+        Auth.setToken(res.data.token);
+        Auth.setStravaToken(res.data.access_token);
+      })
       .then(() => localStorage.removeItem('provider'))
       .then(() => this.props.history.replace(this.props.location.pathname))
       .then(() => this.props.history.push('/'));

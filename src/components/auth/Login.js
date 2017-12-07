@@ -25,6 +25,7 @@ class Login extends React.Component {
     Axios.post('/api/login', this.state.credentials)
       .then((res) => {
         Auth.setToken(res.data.token);
+        // Auth.setStravaToken(res.data.strava);
         this.props.history.push('/');
       })
       .catch(() => {
