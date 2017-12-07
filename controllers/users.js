@@ -1,18 +1,16 @@
 const User = require('../models/user');
 
 function usersIndex(req, res, next) {
+  console.log(req.body);
   User
     .find()
-    .populate('user shape comments.createdBy')
+    // .populate('user shape comments.createdBy')
     .exec()
     .then(users => res.status(201).json(users))
     .catch(next);
 }
 
 function usersCreate(req, res, next) {
-//inject neccessary info into req.body
-// req.body.owner = req.currentUser._id;
-
   User
     .create(req.body)
     .then(user => res.status(201).json(user))
@@ -22,7 +20,6 @@ function usersCreate(req, res, next) {
 function usersShow(req, res, next) {
   User
     .findById(req.params.id)
-    .populate('user shape comments.createdBy')
     .exec()
     .then((user) => {
       if(!user) return res.notFound();
