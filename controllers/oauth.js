@@ -3,52 +3,41 @@ const jwt = require('jsonwebtoken');
 const { secret } = require('../config/environment');
 const User = require('../models/user');
 
-function github(req, res, next) {
+function strava(req, res, next) {
   return rp({
     method: 'POST',
-    url: 'https://github.com/login/oauth/access_token',
+    url: 'https://www.strava.com/oauth/token',
     qs: {
-      client_id: process.env.GITHUB_CLIENT_ID,
-      client_secret: process.env.GITHUB_CLIENT_SECRET,
+      client_id: process.env.STRAVA_CLIENT_ID,
+      client_secret: process.env.STRAVA_CLIENT_SECRET,
       code: req.body.code
     },
     json: true
   })
-    .then(token => {
-      return rp({
-        method: 'GET',
-        url: 'https://api.github.com/user',
-        qs: token,
-        headers: {
-          'User-Agent': 'Request-Promise'
-        },
-        json: true
-      });
-    })
-    .then(profile => {
+    .then(response => {
+      const { athlete, access_token } = response;
       return User
-        .findOne({ $or: [{ githubId: profile.id }, { email: profile.email }] })
+        .findOne({ $or: [{ stravaId: athlete.id }, { email: athlete.email }] })
         .then((user) => {
           if(!user) {
             user = new User({
-              username: profile.login,
-              email: profile.email,
-              image: profile.avatar_url
+              username: `${athlete.firstname} ${athlete.lastname}`,
+              image: athlete.profile
             });
           }
 
-          user.githubId = profile.id;
-          if(profile.email) user.email = profile.email;
+          user.stravaId = athlete.id;
+          if(athlete.email) user.email = athlete.email;
           return user.save();
-        });
-    })
-    .then(user => {
-      const payload = { userId: user.id };
-      const token = jwt.sign(payload, secret, { expiresIn: '1hr' });
+        })
+        .then(user => {
+          const payload = { userId: user.id };
+          const token = jwt.sign(payload, secret, { expiresIn: '1hr' });
 
-      res.json({ message: `Welcome ${user.username}!`, token });
+          res.json({ message: `Welcome ${user.username}!`, token, access_token });
+        });
     })
     .catch(next);
 }
 
-module.exports = { github };
+module.exports = { strava };

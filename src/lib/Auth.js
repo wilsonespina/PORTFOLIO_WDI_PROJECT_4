@@ -3,8 +3,16 @@ class Auth {
     return localStorage.setItem('token', token);
   }
 
+  static setStravaToken(stravaToken) {
+    return localStorage.setItem('access_token', stravaToken);
+  }
+
   static getToken() {
     return localStorage.getItem('token');
+  }
+
+  static getStravaToken() {
+    return localStorage.getItem('access_token');
   }
 
   static isAuthenticated() {
@@ -15,7 +23,7 @@ class Auth {
   }
 
   static logout() {
-    localStorage.removeItem('token');
+    localStorage.removeItem('token', 'access_token');
   }
 
   static getPayload() {

@@ -3,7 +3,7 @@ const runs  = require('../controllers/runs');
 const users  = require('../controllers/users');
 const shapes  = require('../controllers/shapes');
 const auth  = require('../controllers/auth');
-// const oauth  = require('../controllers/oauth');
+const oauth  = require('../controllers/oauth');
 const secureRoute = require('../lib/secureRoute');
 
 router.route('/runs')
@@ -41,8 +41,8 @@ router.route('/register')
 router.route('/login')
   .post(auth.login);
 
-// router.route('/oauth/strava')
-//   .post(oauth.strava);
+router.route('/oauth/strava')
+  .post(oauth.strava);
 
 router.all('/*', (req, res) => res.notFound());
 

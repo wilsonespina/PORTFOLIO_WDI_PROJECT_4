@@ -1,6 +1,7 @@
 import React from 'react';
 import Axios from 'axios';
 import { Link } from 'react-router-dom';
+import Auth from '../../lib/Auth';
 // import _ from 'lodash';
 
 // import SearchBar from '../utility/SearchBar';
@@ -13,7 +14,10 @@ class RunsIndex extends React.Component {
 
   componentWillMount() {
     Axios
-      .get('/api/runs')
+      // .get('/api/runs')
+      .get('/api/runs', {
+        headers: { Authorization: `Bearer ${Auth.getStravaToken()}`}
+      })
       .then(res => this.setState({ runs: res.data }))
       .catch(err => console.log(err));
   }
@@ -36,7 +40,7 @@ class RunsIndex extends React.Component {
           {/* <div className="col-md-12">
             <SearchBar handleSearch={ this.handleSearch } />
             <Link to="/runs/new" className="btn btn-info index-add-button">
-              <i className="fa fa-plus" aria-hidden="true"></i>Add a Dog
+              <i className="fa fa-plus" aria-hidden="true"></i>Add a Run
             </Link>
           </div> */}
 
