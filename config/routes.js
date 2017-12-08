@@ -6,6 +6,16 @@ const auth  = require('../controllers/auth');
 const oauth  = require('../controllers/oauth');
 const secureRoute = require('../lib/secureRoute');
 
+router.route('/shapes')
+  .get(shapes.index)
+  .post(secureRoute, shapes.create);
+
+router.route('/shapes/:id')
+  .get(shapes.show)
+  .put(secureRoute, shapes.update)
+  .delete(secureRoute, shapes.delete);
+
+//--------------------************-----------------------
 router.route('/runs')
   .get(runs.index)
   .post(secureRoute, runs.create);
@@ -26,14 +36,8 @@ router.route('/users/:id')
   .put(secureRoute, users.update)
   .delete(secureRoute, users.delete);
 
-router.route('/shapes')
-  .get(shapes.index)
-  .post(secureRoute, shapes.create);
+//--------------------************-----------------------
 
-router.route('/shapes/:id')
-  .get(shapes.show)
-  .put(secureRoute, shapes.update)
-  .delete(secureRoute, shapes.delete);
 
 router.route('/register')
   .post(auth.register);

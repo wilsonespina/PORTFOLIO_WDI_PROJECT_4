@@ -12,7 +12,7 @@ class UsersShow extends React.Component {
 
   componentWillMount() {
     Axios
-      .get(`/api/users/${this.props.match.params.id}`)
+      .get(`/api/runs/${this.props.match.params.id}`)
       .then(res => this.setState({ user: res.data }))
       .catch(err => {
         if(err.response.status === 404) return this.props.history.replace('/404');
@@ -22,7 +22,7 @@ class UsersShow extends React.Component {
 
   deleteUser = () => {
     Axios
-      .delete(`/api/users/${this.props.match.params.id}`)
+      .delete(`/api/runs/${this.props.match.params.id}`)
       .then(() => this.props.history.push('/'));
   }
 
@@ -33,7 +33,7 @@ class UsersShow extends React.Component {
           <h3>{this.state.user.username}</h3>
           <h4>{this.state.user.email}</h4>
           {/* <BackButton history={this.props.history} /> */}
-          {Auth.isAuthenticated() && <Link to={`/users/${this.state.user.id}/edit`} className="standard-button">
+          {Auth.isAuthenticated() && <Link to={`/runs/${this.state.user.id}/edit`} className="standard-button">
             <i className="fa fa-pencil" aria-hidden="true"></i>Edit
           </Link>}
           {' '}

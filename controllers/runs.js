@@ -1,5 +1,4 @@
 const Run = require('../models/run');
-// require('../models/shape');
 
 function runsIndex(req, res, next) {
   Run

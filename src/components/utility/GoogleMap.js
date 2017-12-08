@@ -4,6 +4,11 @@ import React from 'react';
 import mapStyles from '../../config/mapStyles';
 
 class GoogleMap extends React.Component {
+  state = {
+    path: {}
+  }
+
+
 
   componentDidMount() {
     this.map = new google.maps.Map(this.mapCanvas, {
@@ -19,6 +24,17 @@ class GoogleMap extends React.Component {
       position: this.props.center || { lat: 51.51, lng: -0.09 },
       animation: google.maps.Animation.DROP
     });
+
+    // this.polyLine = new google.maps.Polyline({
+    //   path: this.props.path,
+    //   geodesic: true,
+    //   strokeColor: '#FF0000',
+    //   strokeOpacity: 1.0,
+    //   strokeWeight: 2
+    // });
+
+
+
   }
 
   componentWillUnmount() {

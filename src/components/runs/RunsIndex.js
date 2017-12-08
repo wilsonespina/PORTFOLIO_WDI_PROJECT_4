@@ -1,10 +1,12 @@
 import React from 'react';
 import Axios from 'axios';
 import { Link } from 'react-router-dom';
+
+import GoogleMap from '../utility/GoogleMap';
+import Auth from '../../lib/Auth';
 // import _ from 'lodash';
 
-import Auth from '../../lib/Auth';
-import GoogleMap from '../utility/GoogleMap';
+// import SearchBar from '../utility/SearchBar';
 
 class RunsIndex extends React.Component {
   state = {
@@ -15,53 +17,40 @@ class RunsIndex extends React.Component {
 
   componentWillMount() {
     Axios
-      .get('/api/runs', {
+      .get('https://www.strava.com/api/v3/athlete/activities', {
         headers: { Authorization: `Bearer ${Auth.getStravaToken()}`}
       })
       .then(res => this.setState({ runs: res.data }))
-      .catch(err => console.log(err));
+      .catch(err => console.log('this is the error', err));
   }
-
-  // handleSearch = (e) => {
-  //   this.setState({ search: e.target.value });
-  //   console.log(this.state.search);
-  // }
 
   render() {
 
-    // const { search } = this.state;
-    // const regex = new RegExp(search, 'i');
-    // const filterSort = _.orderBy(this.state.runs);
-    // const sorted = _.filter(filterSort, (run) => regex.test([run.breed]));
-console.log(this.state.runs);
-
+    console.log(this.state.runs);
     return (
       <div>
         <div className="row">
-          <h1>Community Runs</h1>
-          <h2>Shape of the week</h2>
-          { this.state.runs[0] && <img src={this.state.runs[0].shape.image} className="run-index-shape-of-week"/>}
+          {/* <div className="col-md-12">
+            <SearchBar handleSearch={ this.handleSearch } />
+            <Link to="/runs/new" className="btn btn-info index-add-button">
+              <i className="fa fa-plus" aria-hidden="true"></i>Add a Run
+            </Link>
+          </div> */}
 
-        </div>
-
-        <div className="row">
           { this.state.runs.map(run => {
             return(
-              <div key={run.id} className="image-tile col-lg-6 col-md-6 col-sm-6 col-xs-12">
+              <div key={run.id} className="image-tile col-md-4 col-sm-6 col-xs-12">
                 <Link to={`/runs/${run.id}`}>
-                  <h1>{run.user.username}</h1>
+                  <h1>{run.athlete.id}</h1>
                 </Link>
-                <p><strong>Start Date: {(run.date).substring(0, 10)}</strong></p>
-                <p><strong>Start Time: {(run.date).substring(11, 16)}</strong></p>
-                <p>Shape: {run.shape.name}</p>
-                {run.shape.image &&
-                  <img src={run.shape.image} className="run-index-img-tile"/>}
+                <p>Distance: {run.distance}m</p>
+                <p>Start Date: {(run.start_date_local).substring(0, 10)}</p>
+                <p>Start Time: {(run.start_date_local).substring(11, 16)}</p>
                 <GoogleMap center={this.state.center} />
               </div>
             );
           })}
         </div>
-
       </div>
     );
   }

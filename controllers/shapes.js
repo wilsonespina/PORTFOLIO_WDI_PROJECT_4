@@ -20,7 +20,7 @@ function shapesCreate(req, res, next) {
 function shapesShow(req, res, next) {
   Shape
     .findById(req.params.id)
-    .populate('user')
+    // .populate('user')
     .exec()
     .then((shape) => {
       if(!shape) return res.notFound();
