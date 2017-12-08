@@ -19,7 +19,6 @@ class RunsIndex extends React.Component {
         headers: { Authorization: `Bearer ${Auth.getStravaToken()}`}
       })
       .then(res => {
-        // cleanUpLine(res.data[0].map.summary_polyline);
         res.data = res.data.map(data => {
           data.map.summary_polyline = String.raw`${data.map.summary_polyline}`.replace(/\\\\/g, '\\');
           return data;

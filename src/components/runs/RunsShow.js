@@ -7,13 +7,13 @@ import Auth from '../../lib/Auth';
 
 class UsersShow extends React.Component {
   state = {
-    user: {}
+    run: {}
   }
 
   componentWillMount() {
     Axios
       .get(`/api/runs/${this.props.match.params.id}`)
-      .then(res => this.setState({ user: res.data }))
+      .then(res => this.setState({ run: res.data }))
       .catch(err => {
         if(err.response.status === 404) return this.props.history.replace('/404');
         console.log(err);
