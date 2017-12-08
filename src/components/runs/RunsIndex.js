@@ -26,10 +26,25 @@ class RunsIndex extends React.Component {
         this.setState({ runs: res.data });
       })
       .catch(err => console.log('this is the error', err));
+
+
+      // Axios
+      //   .get('/api/runs', {
+      //     headers: { Authorization: `Bearer ${Auth.getStravaToken()}`}
+      //   })
+      //   .then(res => {
+      //     const runs = res.data.filter(run => run.shape.id === this.props.match.params.id);
+      //     this.setState({ runs: runs });
+      //   })
+      //   .catch(err => console.log(err));
+
+
   }
 
-  render() {
 
+
+
+  render() {
     console.log(this.state.runs);
     return (
       <div>
@@ -43,7 +58,7 @@ class RunsIndex extends React.Component {
 
           { this.state.runs.map(run => {
             return(
-              <div key={run.id} className="image-tile col-md-4 col-sm-6 col-xs-12">
+              <div key={run.id} className="image-tile col-md-6 col-sm-6 col-xs-12">
                 <Link to={`/runs/${run.id}`}>
                   <h1>{run.athlete.id}</h1>
                 </Link>

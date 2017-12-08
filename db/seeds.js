@@ -86,6 +86,67 @@ User.create([
             date: '2017-12-13T18:00:00Z',
             shape: Shape[0],
             summary_polyline: 'qcsyHxzRiOqJcAh@k@xGlI~CdGdNtDQjF{Fy\\iSu@pG|HtCpGjN|DOvEyEmA_DuYgO}@|GfHvBo@xOcIdD_A`WgBjA',
+            start_latlng: [51.55, -0.1],
+            comments: [{
+              content: 'Great run yo!',
+              createdBy: Users[1]
+            }, {
+              content: 'Fantastic!',
+              createdBy: Users[2]
+            }]
+          },
+          {
+            user: Users[1],
+            rating: 3.5,
+            date: '2017-12-13T18:00:00Z',
+            shape: Shape[0],
+            summary_polyline: 'wqsyHfeTzI_Ht@iLbGaBfDoFk_@sYuMuDwAuQwB{@kD_IkDkO_IeRsFoBeBcIeCw@yAyEqJjNZlQnEfJ`Kx@dO_FtKbZhDv@?|PdKrC',
+            start_latlng: [51.55, -0.1],
+            comments: [{
+              content: 'Great run yo!',
+              createdBy: Users[1]
+            }, {
+              content: 'Fantastic!',
+              createdBy: Users[2]
+            }]
+          },
+          {
+            user: Users[3],
+            rating: 3.5,
+            date: '2017-12-13T18:00:00Z',
+            shape: Shape[0],
+            summary_polyline: 'qcsyHxzRiOqJcAh@k@xGlI~CdGdNtDQjF{Fy\\iSu@pG|HtCpGjN|DOvEyEmA_DuYgO}@|GfHvBo@xOcIdD_A`WgBjA',
+            start_latlng: [51.55, -0.1],
+            comments: [{
+              content: 'Great run yo!',
+              createdBy: Users[1]
+            }, {
+              content: 'Fantastic!',
+              createdBy: Users[2]
+            }]
+          },
+          {
+            user: Users[4],
+            rating: 3.5,
+            date: '2017-12-13T18:00:00Z',
+            shape: Shape[0],
+            summary_polyline: 'wqsyHfeTzI_Ht@iLbGaBfDoFk_@sYuMuDwAuQwB{@kD_IkDkO_IeRsFoBeBcIeCw@yAyEqJjNZlQnEfJ`Kx@dO_FtKbZhDv@?|PdKrC',
+            start_latlng: [51.55, -0.1],
+            comments: [{
+              content: 'Great run yo!',
+              createdBy: Users[1]
+            }, {
+              content: 'Fantastic!',
+              createdBy: Users[2]
+            }]
+          },
+          {
+            user: Users[3],
+            rating: 3.5,
+            date: '2017-12-13T18:00:00Z',
+            shape: Shape[0],
+            summary_polyline: 'qcsyHxzRiOqJcAh@k@xGlI~CdGdNtDQjF{Fy\\iSu@pG|HtCpGjN|DOvEyEmA_DuYgO}@|GfHvBo@xOcIdD_A`WgBjA',
+            start_latlng: [51.55, -0.1],
             comments: [{
               content: 'Great run yo!',
               createdBy: Users[1]
@@ -100,6 +161,7 @@ User.create([
             date: '2017-12-14T18:00:00Z',
             shape: Shape[1],
             summary_polyline: 'wbtyHhqSw[tIe_@qEoDkI_HuAq_@mh@mK`IaDnM~@dHrDlGzPdAtMsBbIjBcFsK_Xi^eF~AsIfPTtIjEjIf_@KrGzBxJgC~DtHbZmHzDhNvQaC',
+            start_latlng: [51.55, -0.1],
             comments: [{
               content: 'You did great',
               createdBy: Users[3]
@@ -114,6 +176,7 @@ User.create([
             date: '2017-10-14T18:00:00Z',
             shape: Shape[2],
             summary_polyline: 'kxsyHrbT[iKoCwEa_@`HqIu[iGxB_CtD{IyEsFhKmo@o@uEuEmAwM|G{ObDkCbEHp^fh@|CbBxBeBdCzFxEdAfUyIhEpNdBw@',
+            start_latlng: [51.55, -0.1],
             comments: [{
               content: 'FAB',
               createdBy: Users[4]

@@ -21,6 +21,7 @@ const runSchema = new mongoose.Schema({
   rating: { type: Number, trim: true },
   date: { type: String, trim: true },
   shape: { type: mongoose.Schema.ObjectId, ref: 'Shape' },
+  start_latlng: { type: Array },
   summary_polyline: { type: String, trim: true },
   comments: [commentSchema]
 });
