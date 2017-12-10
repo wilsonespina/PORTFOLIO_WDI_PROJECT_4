@@ -8,8 +8,8 @@ import ShapesIndex from '../shapes/ShapesIndex';
 import ShapesShow from '../shapes/ShapesShow';
 
 
-import RunsIndex from '../runs/RunsIndex';
-import RunsShow from '../runs/RunsShow';
+import UsersIndex from '../users/UsersIndex';
+import UsersShow from '../users/UsersShow';
 // import RunsNew from '../runs/RunsNew';
 // import RunsEdit from '../runs/RunsEdit';
 // import ProtectedRoute from './ProtectedRoute';
@@ -21,8 +21,8 @@ const Routes = () => {
       <Route path="/register" component={Register} />
       <Route exact path="/" component={ShapesIndex} />
       <Route path="/shapes/:id" component={ShapesShow} />
-      <Route path="/runs/:id" component={RunsShow} />
-      <Route path="/runs" component={RunsIndex} />
+      <Route path="/users/:id" component={UsersShow} />
+      <Route path="/users" component={UsersIndex} />
       {/* <ProtectedRoute path="/runs/new" component={RunsNew} />
       <ProtectedRoute path="/runs/:id/edit" component={RunsEdit} />
       <Route path="/runs/:id" component={RunsShow} /> */}

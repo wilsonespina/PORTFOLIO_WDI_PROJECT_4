@@ -7,7 +7,7 @@ import Auth from '../../lib/Auth';
 // import _ from 'lodash';
 
 // import SearchBar from '../utility/SearchBar';
-class RunsIndex extends React.Component {
+class UsersIndex extends React.Component {
   state = {
     runs: [],
     search: ''
@@ -60,12 +60,13 @@ class RunsIndex extends React.Component {
             return(
               <div key={run.id} className="image-tile col-md-6 col-sm-6 col-xs-12">
                 <Link to={`/runs/${run.id}`}>
-                  <h1>{run.athlete.id}</h1>
+                  <h1>Current USER::{run.athlete.id}</h1>
                 </Link>
                 <p>Distance: {run.distance}m</p>
                 <p>Start Date: {(run.start_date_local).substring(0, 10)}</p>
                 <p>Start Time: {(run.start_date_local).substring(11, 16)}</p>
                 {run.start_latlng && <GoogleMap center={{lat: run.start_latlng[0], lng: run.start_latlng[1]}} path={run.map.summary_polyline} />}
+                <button>Submit run</button>
               </div>
             );
           })}
@@ -75,4 +76,4 @@ class RunsIndex extends React.Component {
   }
 }
 
-export default RunsIndex;
+export default UsersIndex;

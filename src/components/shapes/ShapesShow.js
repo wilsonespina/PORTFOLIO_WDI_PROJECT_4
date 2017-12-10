@@ -40,7 +40,7 @@ class ShapesShow extends React.Component {
   }
 
   render() {
-    // console.log(this.state.runs);
+    console.log(this.state.runs);
     return (
       <div className="row">
         <div className="container">
@@ -54,7 +54,7 @@ class ShapesShow extends React.Component {
           <hr/>
           <div className="row show-bottom-section">
             <h1>Runs</h1>
-            <Link to="/runs"><button>Add a run</button></Link>
+            <Link to="/users"><button>Add a run</button></Link>
 
             { this.state.runs.map(run => {
               return(
