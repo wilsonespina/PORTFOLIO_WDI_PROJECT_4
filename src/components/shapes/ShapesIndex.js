@@ -20,6 +20,8 @@ class ShapesIndex extends React.Component {
   }
 
   render() {
+
+
     return (
       <div className="row main-section">
         <h1>Community Shapes</h1>

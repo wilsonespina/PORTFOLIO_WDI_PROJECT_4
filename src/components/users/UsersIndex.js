@@ -24,6 +24,7 @@ class UsersIndex extends React.Component {
           return data;
         });
         this.setState({ runs: res.data });
+        console.log('res.data', res);
       })
       .catch(err => console.log('this is the error', err));
 
@@ -45,7 +46,7 @@ class UsersIndex extends React.Component {
 
 
   render() {
-    console.log(this.state.runs);
+    // console.log(this.state.runs);
     return (
       <div>
         <div className="row">

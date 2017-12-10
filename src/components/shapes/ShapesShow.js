@@ -26,10 +26,32 @@ class ShapesShow extends React.Component {
         headers: { Authorization: `Bearer ${Auth.getStravaToken()}`}
       })
       .then(res => {
+        res.data = res.data.map(data => {
+          data.summary_polyline = String.raw`${data.summary_polyline}`.replace(/\\\\/g, '\\');
+          return data;
+        });
         const runs = res.data.filter(run => run.shape.id === this.props.match.params.id);
+
         this.setState({ runs: runs });
+        console.log('res data', runs);
       })
       .catch(err => console.log(err));
+
+      // Axios
+      //   .get('https://www.strava.com/api/v3/athlete/activities', {
+      //     headers: { Authorization: `Bearer ${Auth.getStravaToken()}`}
+      //   })
+      //   .then(res => {
+      //     res.data = res.data.map(data => {
+      //       data.map.summary_polyline = String.raw`${data.map.summary_polyline}`.replace(/\\\\/g, '\\');
+      //       return data;
+      //     });
+      //     this.setState({ runs: res.data });
+      //   })
+      //   .catch(err => console.log('this is the error', err));
+
+
+
 
   }
 
@@ -40,7 +62,7 @@ class ShapesShow extends React.Component {
   }
 
   render() {
-    console.log(this.state.runs);
+    // console.log(this.state.runs);
     return (
       <div className="row">
         <div className="container">

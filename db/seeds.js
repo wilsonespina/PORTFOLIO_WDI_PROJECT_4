@@ -85,7 +85,7 @@ User.create([
             rating: 4.5,
             date: '2017-06-13T11:00:00Z',
             shape: Shape[0],
-            summary_polyline: 'wqsyHfeTzI_Ht@iLbGaBfDoFk_@sYuMuDwAuQwB{@kD_IkDkO_IeRsFoBeBcIeCw@yAyEqJjNZlQnEfJ`Kx@dO_FtKbZhDv@?|PdKrC',
+            summary_polyline: 'irkyHvra@uBnF~HjDsC|b@hJ_Uv]re@~Gc^uSat@~OaNuNukAu^`VuFnr@hGza@',
             start_latlng: [51.51040, -0.16617],
             comments: [{
               content: 'Unicorn!',
@@ -234,7 +234,7 @@ User.create([
             user: Users[2],
             rating: 4.1,
             date: '2017-10-14T18:00:00Z',
-            shape: Shape[4],
+            shape: Shape[5],
             summary_polyline: '_tkyHbj^tBPkD~TtDs@tFeXtLvQ~C_NiGgJuCpGtBsOtUjL^tf@_Nho@uLkSkBoMuJzD_EoF_FcP~Hmb@tDhC',
             start_latlng: [51.50265, -0.17346],
             comments: [{
