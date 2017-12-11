@@ -39,8 +39,8 @@ class RunsShow extends React.Component {
             { this.state.run.summary_polyline && <div>
               <h3>{this.state.run.shape.name}</h3>,
               <img src={this.state.run.shape.image} className="runs-show-shape-img"/>,
-              <GoogleMap center={{lat: this.state.run.start_latlng[0], lng: this.state.run.start_latlng[1]}} path={this.state.run.summary_polyline} />
-
+              <GoogleMap center={{lat: this.state.run.start_latlng[0], lng: this.state.run.start_latlng[1]}} path={this.state.run.summary_polyline} />,
+              <h3>Average rating: {this.state.run.rating}</h3>
             </div>}
           </div>
 
@@ -51,7 +51,7 @@ class RunsShow extends React.Component {
               </div>}
             </div>
 
-            <div className="run-show-comments-box">
+            <div className="col-sm-12 col-md-12 col-lg-12 run-show-comments-box">
               <h3>Comments</h3>
               { this.state.run.comments && <div>
                 { this.state.run.comments.map(comment => {
@@ -63,21 +63,6 @@ class RunsShow extends React.Component {
                   );
                 })}
               </div>}
-
-
-              {/* { this.state.runs.map(run => {
-                return(
-                  <div key={run.id} className="col-md-10 col-sm-10 col-xs-12">
-                    <Link to={`/runs/${run.id}`}><h2>{run.shape.name}</h2></Link>
-                    <p>Rating: {run.rating}</p>
-                    <p>Runner: {run.user.username}</p>
-                    <p>Start Time: {(run.date).substring(11, 16)}</p>
-                    <p>Start Date: {(run.date).substring(0, 10)}</p>
-                    {run.start_latlng && <GoogleMap center={{lat: run.start_latlng[0], lng: run.start_latlng[1]}} path={run.summary_polyline} />}
-                  </div>
-                );
-              })} */}
-
             </div>
 
           </div>

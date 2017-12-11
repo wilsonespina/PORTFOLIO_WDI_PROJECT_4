@@ -23,28 +23,29 @@ class ShapesIndex extends React.Component {
 
 
     return (
-      <div className="row main-section">
-        <h1>Community Shapes</h1>
+      <div className="row">
+        <div className="main-section col-lg-12">
+          <h1>Community Shapes</h1>
 
-        { this.state.shapes.map(shape => {
-          return(
-            <div key={shape.id} className="show-image-tile col-lg-9 col-md-9 col-sm-12 col-xs-12">
+          { this.state.shapes.map(shape => {
+            return(
+              <div key={shape.id} className="show-image-tile col-md-12">
 
-              <div className="left-tile">
-                {shape.image &&
-                  <img src={shape.image} className="shapes-index-img"/>}
+                <div className="left-tile col-md-6">
+                  {shape.image &&
+                    <img src={shape.image} className="shapes-index-img"/>}
+                </div>
+                <div className="right-tile col-md-6">
+                  <Link to={`/shapes/${shape.id}`}>
+                    <h1 className="show-shape-name">{shape.name}</h1>
+                  </Link>
+                  <p>Number of attempted runs in the past:.......</p>
+                  <p>People who have attempted this run:.......</p>
+                </div>
               </div>
-              <div className="right-tile">
-                <Link to={`/shapes/${shape.id}`}>
-                  <h1 className="show-shape-name">{shape.name}</h1>
-                </Link>
-                <p>Number of attempted runs in the past:.......</p>
-                <p>People who have attempted this run:.......</p>
-              </div>
-
-            </div>
-          );
-        })}
+            );
+          })}
+        </div>
       </div>
     );
   }

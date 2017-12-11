@@ -8,47 +8,34 @@ import Auth from '../../lib/Auth';
 
 class ShapesShow extends React.Component {
   state = {
-    shape: {},
+    shape: null,
     runs: []
   }
 
   componentWillMount() {
     Axios
-      .get(`/api/shapes/${this.props.match.params.id}`)
-      .then(res => this.setState({ shape: res.data }))
-      .catch(err => {
-        if(err.response.status === 404) return this.props.history.replace('/404');
-        console.log(err);
-      });
-
-    Axios
-      .get('/api/runs', {
-        headers: { Authorization: `Bearer ${Auth.getStravaToken()}`}
-      })
-      .then(res => {
-        res.data = res.data.map(data => {
+      .all([
+        Axios.get(`/api/shapes/${this.props.match.params.id}`),
+        Axios
+          .get('/api/runs', {
+            headers: { Authorization: `Bearer ${Auth.getStravaToken()}`}
+          })
+      ])
+      .then(Axios.spread((shape, runs) => {
+        const ignoreSlash = runs.data.map(data => {
           data.summary_polyline = String.raw`${data.summary_polyline}`.replace(/\\\\/g, '\\');
           return data;
         });
-        const runs = res.data.filter(run => run.shape.id === this.props.match.params.id);
-
-        this.setState({ runs: runs });
-        console.log('res data', runs);
-      })
+        const filteredRuns = ignoreSlash.filter(run => {
+          if (run.shape) {
+            return run.shape.id === this.props.match.params.id;
+          }
+        });
+        this.setState({ shape: shape.data, runs: filteredRuns });
+      }))
       .catch(err => console.log(err));
 
-      // Axios
-      //   .get('https://www.strava.com/api/v3/athlete/activities', {
-      //     headers: { Authorization: `Bearer ${Auth.getStravaToken()}`}
-      //   })
-      //   .then(res => {
-      //     res.data = res.data.map(data => {
-      //       data.map.summary_polyline = String.raw`${data.map.summary_polyline}`.replace(/\\\\/g, '\\');
-      //       return data;
-      //     });
-      //     this.setState({ runs: res.data });
-      //   })
-      //   .catch(err => console.log('this is the error', err));
+
 
 
 
@@ -62,7 +49,7 @@ class ShapesShow extends React.Component {
   }
 
   render() {
-    // console.log(this.state.runs);
+    if (!this.state.shape) return null;
     return (
       <div className="row">
         <div className="container">
@@ -76,7 +63,8 @@ class ShapesShow extends React.Component {
           <hr/>
           <div className="row show-bottom-section">
             <h1>Runs</h1>
-            <Link to="/users"><button>Add a run</button></Link>
+            <Link to="/users"><button>My Runs</button></Link>
+            <Link to={`/shapes/${this.state.shape.id}/submit`}><button>Add my own run</button></Link>
 
             { this.state.runs.map(run => {
               return(

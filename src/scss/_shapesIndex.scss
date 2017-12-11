@@ -1,33 +1,4 @@
-// TILES
-
-.main-section {
-  margin: 0 auto;
+img.shapes-index-img {
   width: 100%;
-  position: absolute;
-}
-
-.show-image-tile {
-  border: 2px solid grey;
-}
-
-.shapes-index-img {
-  width: 80%;
-  min-height: 300px;
   background-size: cover;
-}
-
-.left-tile {
-  float: left;
-}
-
-.right-tile {
-  float: right;
-}
-
-.left-tile .right-tile{
-  width: 45%
-}
-
-.show-shape-name {
-  display: inline-block;
 }

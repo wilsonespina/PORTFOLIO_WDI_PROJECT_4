@@ -23,8 +23,9 @@ class UsersIndex extends React.Component {
           data.map.summary_polyline = String.raw`${data.map.summary_polyline}`.replace(/\\\\/g, '\\');
           return data;
         });
-        this.setState({ runs: res.data });
-        console.log('res.data', res);
+        const runs = res.data.filter(run => run.type === 'Run');
+        this.setState({ runs: runs });
+        console.log('runs data', runs);
       })
       .catch(err => console.log('this is the error', err));
 
@@ -38,7 +39,6 @@ class UsersIndex extends React.Component {
       //     this.setState({ runs: runs });
       //   })
       //   .catch(err => console.log(err));
-
 
   }
 
@@ -67,7 +67,7 @@ class UsersIndex extends React.Component {
                 <p>Start Date: {(run.start_date_local).substring(0, 10)}</p>
                 <p>Start Time: {(run.start_date_local).substring(11, 16)}</p>
                 {run.start_latlng && <GoogleMap center={{lat: run.start_latlng[0], lng: run.start_latlng[1]}} path={run.map.summary_polyline} />}
-                <button>Submit run</button>
+                <Link to={`/runs/${run.id}/new`}><p>Submit run</p></Link>
               </div>
             );
           })}
