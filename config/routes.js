@@ -28,7 +28,11 @@ router.route('/runs/:id')
   .put(secureRoute, runs.update)
   .delete(secureRoute, runs.delete);
 
-// router.route('/runs/:id/new')
+router.route('/runs/:id/comments')
+  .post(runs.createComment);
+
+router.route('/runs/:id/comments/:commentId')
+  .delete(runs.deleteComment);
 
 //--------------------************-----------------------
 

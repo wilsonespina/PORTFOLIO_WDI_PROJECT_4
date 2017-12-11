@@ -28,18 +28,7 @@ class UsersIndex extends React.Component {
         console.log('runs data', runs);
       })
       .catch(err => console.log('this is the error', err));
-
-
-      // Axios
-      //   .get('/api/runs', {
-      //     headers: { Authorization: `Bearer ${Auth.getStravaToken()}`}
-      //   })
-      //   .then(res => {
-      //     const runs = res.data.filter(run => run.shape.id === this.props.match.params.id);
-      //     this.setState({ runs: runs });
-      //   })
-      //   .catch(err => console.log(err));
-
+      
   }
 
 

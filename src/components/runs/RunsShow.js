@@ -2,14 +2,15 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Axios from 'axios';
 
-// import BackButton from '../utility/BackButton';
+import Auth from '../../lib/Auth';
 import GoogleMap from '../utility/GoogleMap';
 // import Auth from '../../lib/Auth';
 
 class RunsShow extends React.Component {
   state = {
     shape: {},
-    run: []
+    run: [],
+    comment: []
   }
 
   componentWillMount() {
@@ -20,18 +21,26 @@ class RunsShow extends React.Component {
         if(err.response.status === 404) return this.props.history.replace('/404');
         console.log(err);
       });
-
-
   }
 
-  // deleteUser = () => {
-  //   Axios
-  //     .delete(`/api/shapes/${this.props.match.params.id}`)
-  //     .then(() => this.props.history.push('/'));
+  addComment = (e) => {
+    e.preventDefault();
+
+    Axios
+      .post(`/api/runs/${this.props.match.params.id}/comments`, this.state.run, {
+        headers: { 'Authorization': `Bearer ${Auth.getToken()}`}
+      })
+      .then(this.setState({ run: this.state.run }))
+      .catch(err => console.log(err));
+    console.log(this.state);
+  }
+
+  // deleteComment() {
+  //
   // }
 
   render() {
-    console.log(this.state.run);
+    // console.log(this.state.run);
     return (
       <div className="row">
         <div className="container">
@@ -49,6 +58,7 @@ class RunsShow extends React.Component {
               { this.state.run.user && <div>
                 <h2>{this.state.run.user.username}</h2>,
               </div>}
+              <h3>RATING:</h3>
             </div>
 
             <div className="col-sm-12 col-md-12 col-lg-12 run-show-comments-box">
@@ -63,6 +73,20 @@ class RunsShow extends React.Component {
                   );
                 })}
               </div>}
+
+              <form className="input-form" onSubmit={this.addComment}>
+                <div className="run-show-comment-form">
+                  <label className="comment-label">Comment</label>
+                  <input
+                    type="text"
+                    className="form-control"
+                    name="content"
+                    id="comment-box"
+                  />
+                  <button className="btn">POST</button>
+                </div>
+              </form>
+
             </div>
 
           </div>

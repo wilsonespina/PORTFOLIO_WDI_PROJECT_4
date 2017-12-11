@@ -10,8 +10,6 @@ function runsIndex(req, res, next) {
 }
 
 function runsCreate(req, res, next) {
-//inject neccessary info into req.body
-  // console.log(req.body, req.currentUser);
   req.body.user = req.currentUser._id;
 
   Run
@@ -59,10 +57,41 @@ function runsDelete(req, res, next) {
     .catch(next);
 }
 
+function createComment(req, res, next) {
+  console.log(req);
+  // req.body.createdBy.username = req.currentUser._id;
+
+  // Run.findById(req.params.id)
+  //   .exec()
+  //   .then(run => {
+  //     if (!run) return res.notFound();
+  //     console.log('this is the current run', req.run);
+  //     run.comments.push(req.body);
+  //     return run.save();
+  //   })
+  //   .then(run => res.status(201).json(run))
+  //   .catch(next);
+}
+
+function deleteComment(req, res, next) {
+  Run.findById(req.params.id)
+    .exec()
+    .then(run => {
+      if (!run) return res.notFound();
+      const comment = run.comments.id(req.params.commentId);
+      comment.remove();
+      return run.save();
+    })
+    .then(run => res.status(200).json(run))
+    .catch(next);
+}
+
 module.exports = {
   index: runsIndex,
   create: runsCreate,
   show: runsShow,
   update: runsUpdate,
-  delete: runsDelete
+  delete: runsDelete,
+  createComment: createComment,
+  deleteComment: deleteComment
 };

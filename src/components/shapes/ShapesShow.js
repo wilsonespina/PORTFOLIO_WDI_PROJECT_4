@@ -15,10 +15,11 @@ class ShapesShow extends React.Component {
   componentWillMount() {
     Axios
       .all([
-        Axios.get(`/api/shapes/${this.props.match.params.id}`),
+        Axios
+          .get(`/api/shapes/${this.props.match.params.id}`),
         Axios
           .get('/api/runs', {
-            headers: { Authorization: `Bearer ${Auth.getStravaToken()}`}
+            headers: { 'Authorization': `Bearer ${Auth.getStravaToken()}`}
           })
       ])
       .then(Axios.spread((shape, runs) => {
@@ -34,12 +35,6 @@ class ShapesShow extends React.Component {
         this.setState({ shape: shape.data, runs: filteredRuns });
       }))
       .catch(err => console.log(err));
-
-
-
-
-
-
   }
 
   deleteUser = () => {

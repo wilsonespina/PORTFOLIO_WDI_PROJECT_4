@@ -32,22 +32,15 @@ class ShapesSubmit extends React.Component {
         });
         const runs = res.data.filter(run => run.type === 'Run');
         this.setState({ runs: runs });
+        // console.log(runs);
       })
       .catch(err => console.log('this is the error', err));
 
   }
 
   handleChange(target) {
-
-    // date: { type: String, trim: true },
-    // shape: { type: mongoose.Schema.ObjectId, ref: 'Shape' },
-    // start_latlng: { type: Array },
-    // summary_polyline: { type: String, trim: true },
-
     const selectedRun = { date: target.start_date, shape: this.props.match.params.id, start_latlng: target.start_latlng, summary_polyline: target.map.summary_polyline  };
-    this.setState({ run: selectedRun }, () => {
-      console.log(this.state);
-    });
+    this.setState({ run: selectedRun });
   }
 
   handleSubmit = (e) => {
@@ -98,9 +91,7 @@ class ShapesSubmit extends React.Component {
                 );
               })}
             </div>}
-
           </form>
-
         </div>
 
 
