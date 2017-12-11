@@ -81,7 +81,7 @@ class ShapesShow extends React.Component {
             { this.state.runs.map(run => {
               return(
                 <div key={run.id} className="col-md-10 col-sm-10 col-xs-12">
-                  <p>{run.shape.name}</p>
+                  <Link to={`/runs/${run.id}`}><h2>{run.shape.name}</h2></Link>
                   <p>Rating: {run.rating}</p>
                   <p>Runner: {run.user.username}</p>
                   <p>Start Time: {(run.date).substring(11, 16)}</p>

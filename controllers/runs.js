@@ -11,6 +11,9 @@ function runsIndex(req, res, next) {
 
 function runsCreate(req, res, next) {
 //inject neccessary info into req.body
+
+  req.body.user = req.user.userId;
+
   Run
     .create(req.body)
     .then(run => res.status(201).json(run))
