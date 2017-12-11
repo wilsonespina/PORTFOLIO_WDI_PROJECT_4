@@ -58,7 +58,7 @@ function runsDelete(req, res, next) {
 }
 
 function createComment(req, res, next) {
-  console.log(req);
+  console.log(req.body);
   // req.body.createdBy.username = req.currentUser._id;
 
   // Run.findById(req.params.id)

@@ -50,17 +50,14 @@ class ShapesSubmit extends React.Component {
       .post('/api/runs', this.state.run, {
         headers: { 'Authorization': `Bearer ${Auth.getToken()}`}
       })
-      .then(() => this.props.history.push('/'))
+      .then(() => this.props.history.push(`/shapes/${this.props.match.params.id}`))
       .catch(err => console.log(err));
   }
 
   render() {
-    // console.log('shape data', this.state.shape);
-    // console.log('activity data', this.state.runs);
-
     return (
       <div className="row">
-        <div className="shape-submit-left ol-md-6 col-sm-6 col-xs-12">
+        <div className="shape-submit-left col-md-6 col-sm-6 col-xs-12">
           {this.state.shape.image && <img src={this.state.shape.image} className="shapes-submit-shape-img"/>}
 
         </div>

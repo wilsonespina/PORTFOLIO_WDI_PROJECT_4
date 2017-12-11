@@ -9,8 +9,9 @@ import GoogleMap from '../utility/GoogleMap';
 class RunsShow extends React.Component {
   state = {
     shape: {},
-    run: [],
-    comment: []
+    run: {
+      comments: []
+    }
   }
 
   componentWillMount() {
@@ -23,16 +24,22 @@ class RunsShow extends React.Component {
       });
   }
 
+  handleChange = ({ target: { name, value }}) => {
+    const run = Object.assign({}, this.state.run, { [name]: value });
+    this.setState({ run: run });
+    console.log('change', this.state.run);
+  }
+
   addComment = (e) => {
     e.preventDefault();
 
     Axios
-      .post(`/api/runs/${this.props.match.params.id}/comments`, this.state.run, {
+      .post(`/api/runs/${this.props.match.params.id}/comments`, this.state.run.comments[0], {
         headers: { 'Authorization': `Bearer ${Auth.getToken()}`}
       })
       .then(this.setState({ run: this.state.run }))
       .catch(err => console.log(err));
-    console.log(this.state);
+    console.log('submit', this.state.run);
   }
 
   // deleteComment() {
@@ -82,6 +89,7 @@ class RunsShow extends React.Component {
                     className="form-control"
                     name="content"
                     id="comment-box"
+                    onChange={this.handleChange}
                   />
                   <button className="btn">POST</button>
                 </div>
