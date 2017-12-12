@@ -12,7 +12,8 @@ class RunsShow extends React.Component {
   state = {
     shape: {},
     run: {
-      comments: []
+      comments: [],
+      rating: null
     },
     comment: {
       content: ''
@@ -71,13 +72,22 @@ class RunsShow extends React.Component {
   }
 
   saveRating = (newRating) => {
-    console.log(newRating);
+    const averageRating = (this.state.run.rating + newRating) / 2;
+    const run = Object.assign({}, this.state.run, { rating: averageRating });
+    console.log(averageRating);
 
+    Axios
+      .put(`/api/runs/${this.props.match.params.id}`, { run }, {
+        headers: { 'Authorization': `Bearer ${Auth.getToken()}` }
+      })
+      .then(() => {
+        this.setState({ run: run });
+      })
+      .catch(err => this.setState({ errors: err.response.data.errors }));
   }
 
   render() {
 console.log(this.state.run);
-
     return (
       <div className="row">
         <div className="container">
@@ -98,44 +108,15 @@ console.log(this.state.run);
               <button className="btn btn-danger" onClick={this.deleteRun}>DELETE RUN</button>
               <h3>YOUR RATING:</h3>
 
-              {/* <form>
-                <label>1</label>
-                <input
-                  type="radio"
-                  value="1"
-                  name="rating"
-                />
-                <label>2</label>
-                <input
-                  type="radio"
-                  value="2"
-                  name="rating"
-                />
-                <label>3</label>
-                <input
-                  type="radio"
-                  value="3"
-                  name="rating"
-                />
-                <label>4</label>
-                <input
-                  type="radio"
-                  value="4"
-                  name="rating"
-                />
-                <label>5</label>
-                <input
-                  type="radio"
-                  value="5"
-                  name="rating"
-                />
-              </form> */}
+              <form>
 
-              <ReactStars
-                count={5}
-                onChange={this.saveRating}
-                size={50}
-                color2={'#E76200'} />,
+                <ReactStars
+                  count={5}
+                  onChange={this.saveRating}
+                  size={50}
+                  color2={'#E76200'}
+                  onClick= {() => this.saveRating()} />
+              </form>
 
 
             </div>
