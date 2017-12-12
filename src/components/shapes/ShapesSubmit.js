@@ -45,7 +45,6 @@ class ShapesSubmit extends React.Component {
         });
         const runs = res.data.filter(run => run.type === 'Run');
         this.setState({ runs: runs });
-        // console.log(runs);
       })
       .catch(err => console.log('this is the error', err));
   }
@@ -71,7 +70,6 @@ class ShapesSubmit extends React.Component {
       <div className="row">
         <div className="shape-submit-left col-md-6 col-sm-6 col-xs-12">
           {this.state.shape.image && <img src={this.state.shape.image} className="shapes-submit-shape-img"/>}
-
         </div>
 
 

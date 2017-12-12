@@ -70,13 +70,14 @@ class RunsShow extends React.Component {
       .catch(err => console.log(err));
   }
 
+  saveRating = (newRating) => {
+    console.log(newRating);
+
+  }
+
+
   render() {
 
-    const ratingChanged = (newRating) => {
-      console.log(newRating);
-    };
-
-    console.log(this.state.run);
     return (
       <div className="row">
         <div className="container">
@@ -92,7 +93,7 @@ class RunsShow extends React.Component {
             <div className="run-show-info-box">
               { this.state.run.user && <div>
                 <h2>Run by: {this.state.run.user.username}</h2>
-                <p>Average rating: {this.state.run.rating}</p>,
+                <p>Average rating: {this.state.run.rating ? this.state.run.rating : 'TBC'}</p>,
               </div>}
               <button className="btn btn-danger" onClick={this.deleteRun}>DELETE RUN</button>
               <h3>YOUR RATING:</h3>
@@ -132,9 +133,9 @@ class RunsShow extends React.Component {
 
               <ReactStars
                 count={5}
-                onChange={ratingChanged}
-                size={30}
-                color2={'#ffd700'} />,
+                onChange={this.saveRating}
+                size={50}
+                color2={'#E76200'} />,
 
 
             </div>
