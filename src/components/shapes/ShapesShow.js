@@ -37,11 +37,11 @@ class ShapesShow extends React.Component {
       .catch(err => console.log(err));
   }
 
-  deleteUser = () => {
-    Axios
-      .delete(`/api/shapes/${this.props.match.params.id}`)
-      .then(() => this.props.history.push('/'));
-  }
+  // deleteUser = () => {
+  //   Axios
+  //     .delete(`/api/shapes/${this.props.match.params.id}`)
+  //     .then(() => this.props.history.push('/'));
+  // }
 
   render() {
     if (!this.state.shape) return null;

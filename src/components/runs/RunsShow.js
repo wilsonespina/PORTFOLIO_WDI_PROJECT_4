@@ -45,18 +45,40 @@ class RunsShow extends React.Component {
       .catch(err => this.setState({ errors: err.response.data.errors }));
   }
 
-  deleteComment = (comment) => {
+  deleteComment = (commentId) => {
     Axios
-      .delete(`/api/runs/${this.props.match.params.id}/comments/${this.state.comment.id}`, this.state.comment, {
+      .delete(`/api/runs/${this.props.match.params.id}/comments/${commentId}`, {
         headers: { 'Authorization': `Bearer ${Auth.getToken()}` }
       })
+      .then(() => {
+        // find the deleted comment in prevState and splice it away
+        const comments = this.state.run.comments.filter(comment => comment.id !== commentId);
+        const run = Object.assign({}, this.state.run, { comments: comments });
+        this.setState({ run: run });
+
+
+
+        // this.setState({ runs: { comments: comments }});
+
+        // this.setState(prevState => {
+        //   const index = prevState.indexOf(comment);
+        //
+        //   console.log(index);
+        // });
+
+
+
+        // this.setState({ run: res.data });
+
+
+      })
+      .catch(err => this.setState({ errors: err.response.data.errors }));
 
 
       // .then(res => {
       //   const run = Object.assign({}, this.state.run, { comments: res.data.comments });
       //   this.setState({ run, comment: { content: '' } });
       // })
-      .catch(err => this.setState({ errors: err.response.data.errors }));
 
 
   }
@@ -92,6 +114,7 @@ console.log(this.state.run);
                     <div key={comment.id} className="run-show-comment-individual">
                       <p>{comment.content}</p>
                       <p><strong>@{comment.createdBy.username}</strong></p>
+                      <button className="btn-danger" onClick={() => this.deleteComment(comment.id)}>delete</button>
                     </div>
                   );
                 })}

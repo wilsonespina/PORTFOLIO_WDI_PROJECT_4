@@ -13,6 +13,20 @@ class ShapesSubmit extends React.Component {
   }
 
   componentDidMount() {
+    ///////----------*****update*********
+    
+    // Axios
+    //   .all([
+    //     Axios
+    //       .get(`/api/shapes/${this.props.match.params.id}`),
+    //     Axios
+    //       .get('/api/runs', {
+    //         headers: { 'Authorization': `Bearer ${Auth.getStravaToken()}`}
+    //       })
+    //   ])
+    //   .then(Axios.spread((shape, runs) => {
+
+
     Axios
       .get(`/api/shapes/${this.props.match.params.id}`)
       .then(res => this.setState({ shape: res.data }))
