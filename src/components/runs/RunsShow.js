@@ -51,41 +51,24 @@ class RunsShow extends React.Component {
         headers: { 'Authorization': `Bearer ${Auth.getToken()}` }
       })
       .then(() => {
-        // find the deleted comment in prevState and splice it away
         const comments = this.state.run.comments.filter(comment => comment.id !== commentId);
         const run = Object.assign({}, this.state.run, { comments: comments });
         this.setState({ run: run });
 
-
-
-        // this.setState({ runs: { comments: comments }});
-
-        // this.setState(prevState => {
-        //   const index = prevState.indexOf(comment);
-        //
-        //   console.log(index);
-        // });
-
-
-
-        // this.setState({ run: res.data });
-
-
       })
       .catch(err => this.setState({ errors: err.response.data.errors }));
+  }
 
-
-      // .then(res => {
-      //   const run = Object.assign({}, this.state.run, { comments: res.data.comments });
-      //   this.setState({ run, comment: { content: '' } });
-      // })
-
-
+  deleteRun = () => {
+    Axios
+      .delete(`/api/runs/${this.props.match.params.id}`, {
+        headers: { 'Authorization': `Bearer ${Auth.getToken()}` }
+      })
+      .then(() => this.props.history.push(`/shapes/${this.state.run.shape.id}`))
+      .catch(err => console.log(err));
   }
 
   render() {
-console.log(this.state.run);
-
     return (
       <div className="row">
         <div className="container">
@@ -103,6 +86,7 @@ console.log(this.state.run);
               { this.state.run.user && <div>
                 <h2>{this.state.run.user.username}</h2>,
               </div>}
+              <button className="btn btn-danger" onClick={this.deleteRun} >DELETE RUN</button>
               <h3>RATING:</h3>
             </div>
 
@@ -129,6 +113,7 @@ console.log(this.state.run);
                     name="content"
                     id="comment-box"
                     onChange={this.handleChange}
+                    value={this.state.comment.content}
                   />
                   <button className="btn-info">POST</button>
                 </div>
