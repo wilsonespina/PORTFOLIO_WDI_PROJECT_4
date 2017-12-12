@@ -82,7 +82,7 @@ User.create([
         return Run.create([
           {
             user: Users[0],
-            rating: 4.5,
+            rating: [4.5],
             date: '2017-06-13T11:00:00Z',
             shape: Shape[0],
             summary_polyline: 'irkyHvra@uBnF~HjDsC|b@hJ_Uv]re@~Gc^uSat@~OaNuNukAu^`VuFnr@hGza@',
@@ -97,7 +97,7 @@ User.create([
           },
           {
             user: Users[1],
-            rating: 3.8,
+            rating: [3.8],
             date: '2017-11-13T14:00:00Z',
             shape: Shape[0],
             summary_polyline: 'irkyHvra@uBnF~HjDsC|b@hJ_Uv]re@~Gc^uSat@~OaNuNukAu^`VuFnr@hGza@',
@@ -112,7 +112,7 @@ User.create([
           },
           {
             user: Users[2],
-            rating: 4.2,
+            rating: [4.2],
             date: '2017-12-14T18:00:00Z',
             shape: Shape[1],
             summary_polyline: 'qajyHli`@_GbHUoc@tFaV?iRkO?k`@cAkBoc@iIzY_FpVaOjS~FlEvPuIhDxw@`\\~b@`[mErAio@',
@@ -127,7 +127,7 @@ User.create([
           },
           {
             user: Users[3],
-            rating: 4.5,
+            rating: [4.5],
             date: '2017-12-14T18:00:00Z',
             shape: Shape[1],
             summary_polyline: 'g}iyHdvb@s@{o@kQ{SjPmb@UcPaOgXk`@tAuMtPuHfQ`K}EuDrOtHmE~HhKkFvg@jU~j@`a@fQ',
@@ -142,7 +142,7 @@ User.create([
           },
           {
             user: Users[4],
-            rating: 4.5,
+            rating: [4.5],
             date: '2017-12-14T18:00:00Z',
             shape: Shape[2],
             summary_polyline: 'ijkyH`|b@`j@lEJ}nAa^tPkTlEtBhJh@vJ_DxJjSiKjTlE??kRpGkPrO',
@@ -157,7 +157,7 @@ User.create([
           },
           {
             user: Users[3],
-            rating: 4.5,
+            rating: [4.5],
             date: '2017-12-14T18:00:00Z',
             shape: Shape[2],
             summary_polyline: 'ijkyH`|b@`j@lEJ}nAa^tPkTlEtBhJh@vJ_DxJjSiKjTlE??kRpGXzBVYbG}ApJxDaHnF',
@@ -172,7 +172,7 @@ User.create([
           },
           {
             user: Users[2],
-            rating: 4.5,
+            rating: [4.5],
             date: '2017-12-14T18:00:00Z',
             shape: Shape[3],
             summary_polyline: 'irkyHja`@jXPuEaVjH}b@wNcWiJvJ~GzCuVza@hH|E`QkLkDnUiMlT',
@@ -187,7 +187,7 @@ User.create([
           },
           {
             user: Users[1],
-            rating: 4.1,
+            rating: [4.1],
             date: '2017-10-14T18:00:00Z',
             shape: Shape[3],
             summary_polyline: 'iokyH|yb@jRdIHuWjPwu@hDkgAuXwX_AeIkLtPjC|SaPrm@`KvBhQq@iD~TuP`OUlE~Kza@uK`O',
@@ -202,7 +202,7 @@ User.create([
           },
           {
             user: Users[0],
-            rating: 4.1,
+            rating: [4.1],
             date: '2017-10-14T18:00:00Z',
             shape: Shape[4],
             summary_polyline: 'sjkyHfab@_FnMhNfCjCqVjT{a@tGvBk@qU_Hr@kTo\\_QwXaH`V`MlE_Dvg@~G`d@',
@@ -217,7 +217,7 @@ User.create([
           },
           {
             user: Users[1],
-            rating: 4.1,
+            rating: [4.1],
             date: '2017-10-14T18:00:00Z',
             shape: Shape[4],
             summary_polyline: 'izkyHlz_@hDkKu@o\\iLaO~MQ~C{DtBpGtJ|DhF?SvQkHhCuGpGI|S_GeA',
@@ -232,7 +232,7 @@ User.create([
           },
           {
             user: Users[2],
-            rating: 4.1,
+            rating: [4.1],
             date: '2017-10-14T18:00:00Z',
             shape: Shape[5],
             summary_polyline: '_tkyHbj^tBPkD~TtDs@tFeXtLvQ~C_NiGgJuCpGtBsOtUjL^tf@_Nho@uLkSkBoMuJzD_EoF_FcP~Hmb@tDhC',
@@ -247,7 +247,7 @@ User.create([
           },
           {
             user: Users[3],
-            rating: 4.1,
+            rating: [4.1],
             date: '2017-10-14T18:00:00Z',
             shape: Shape[5],
             summary_polyline: '_tkyHt~_@jNdA~JiCtCuu@_N}SaHzR~B|EtBsH~D{CjChRkK`VuPk[_@lTuFuWiJ`VhEn\\tIgJ~AhR',

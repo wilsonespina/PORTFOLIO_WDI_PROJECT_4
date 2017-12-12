@@ -13,7 +13,7 @@ class RunsShow extends React.Component {
     shape: {},
     run: {
       comments: [],
-      rating: null
+      rating: [0]
     },
     comment: {
       content: ''
@@ -72,12 +72,13 @@ class RunsShow extends React.Component {
   }
 
   saveRating = (newRating) => {
-    const averageRating = (this.state.run.rating + newRating) / 2;
-    const run = Object.assign({}, this.state.run, { rating: averageRating });
-    console.log(averageRating);
+    const newArray = this.state.run.rating.push(newRating);
+    // console.log(newArray);
+    const run = Object.assign({}, this.state.run, { rating: this.state.run.rating });
+    // console.log(this.state.run);
 
     Axios
-      .put(`/api/runs/${this.props.match.params.id}`, { run }, {
+      .put(`/api/runs/${this.props.match.params.id}`,  { run }, {
         headers: { 'Authorization': `Bearer ${Auth.getToken()}` }
       })
       .then(() => {
@@ -87,7 +88,10 @@ class RunsShow extends React.Component {
   }
 
   render() {
-console.log(this.state.run);
+    const sum = this.state.run.rating.reduce((total, amount) => total + amount);
+    const averageRating = parseFloat(Number(sum / this.state.run.rating.length).toFixed(1));
+    console.log(this.state.run.rating);
+    
     return (
       <div className="row">
         <div className="container">
@@ -103,7 +107,7 @@ console.log(this.state.run);
             <div className="run-show-info-box">
               { this.state.run.user && <div>
                 <h2>Run by: {this.state.run.user.username}</h2>
-                <p>Average rating: {this.state.run.rating ? this.state.run.rating : 'TBC'}</p>,
+                <p>Average rating: {this.state.run.rating.length > 0 ? averageRating : 'TBC'}</p>,
               </div>}
               <button className="btn btn-danger" onClick={this.deleteRun}>DELETE RUN</button>
               <h3>YOUR RATING:</h3>

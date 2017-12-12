@@ -15,9 +15,6 @@ router.route('/shapes/:id')
   .put(secureRoute, shapes.update)
   .delete(secureRoute, shapes.delete);
 
-// router.route('/shapes/:id/submit')
-//   .put(secureRoute, shapes.update);
-
 //--------------------************-----------------------
 router.route('/runs')
   .get(runs.index)
@@ -27,6 +24,7 @@ router.route('/runs/:id')
   .get(runs.show)
   .put(secureRoute, runs.update)
   .delete(secureRoute, runs.delete);
+// .put(secureRoute, runs.saveRating);
 
 router.route('/runs/:id/comments')
   .post(secureRoute, runs.createComment);

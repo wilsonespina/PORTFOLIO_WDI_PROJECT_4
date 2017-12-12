@@ -32,6 +32,7 @@ function runsShow(req, res, next) {
 }
 
 function runsUpdate(req, res, next) {
+  console.log(req);
 
   Run
     .findById(req.params.id)
@@ -86,6 +87,10 @@ function deleteComment(req, res, next) {
     .catch(next);
 }
 
+// function saveRating(req, res, next) {
+//
+// }
+
 module.exports = {
   index: runsIndex,
   create: runsCreate,
@@ -94,4 +99,5 @@ module.exports = {
   delete: runsDelete,
   createComment: createComment,
   deleteComment: deleteComment
+  // saveRating: saveRating
 };
