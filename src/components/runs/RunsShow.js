@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Axios from 'axios';
+import ReactStars from 'react-stars'
+
 
 import Auth from '../../lib/Auth';
 import GoogleMap from '../utility/GoogleMap';
@@ -69,6 +71,12 @@ class RunsShow extends React.Component {
   }
 
   render() {
+
+    const ratingChanged = (newRating) => {
+      console.log(newRating);
+    };
+
+    console.log(this.state.run);
     return (
       <div className="row">
         <div className="container">
@@ -77,17 +85,58 @@ class RunsShow extends React.Component {
               <h3>{this.state.run.shape.name}</h3>,
               <img src={this.state.run.shape.image} className="runs-show-shape-img"/>,
               <GoogleMap center={{lat: this.state.run.start_latlng[0], lng: this.state.run.start_latlng[1]}} path={this.state.run.summary_polyline} />,
-              <h3>Average rating: {this.state.run.rating}</h3>
             </div>}
           </div>
 
           <div className="col-md-6 runs-show-right">
             <div className="run-show-info-box">
               { this.state.run.user && <div>
-                <h2>{this.state.run.user.username}</h2>,
+                <h2>Run by: {this.state.run.user.username}</h2>
+                <p>Average rating: {this.state.run.rating}</p>,
               </div>}
-              <button className="btn btn-danger" onClick={this.deleteRun} >DELETE RUN</button>
-              <h3>RATING:</h3>
+              <button className="btn btn-danger" onClick={this.deleteRun}>DELETE RUN</button>
+              <h3>YOUR RATING:</h3>
+
+              {/* <form>
+                <label>1</label>
+                <input
+                  type="radio"
+                  value="1"
+                  name="rating"
+                />
+                <label>2</label>
+                <input
+                  type="radio"
+                  value="2"
+                  name="rating"
+                />
+                <label>3</label>
+                <input
+                  type="radio"
+                  value="3"
+                  name="rating"
+                />
+                <label>4</label>
+                <input
+                  type="radio"
+                  value="4"
+                  name="rating"
+                />
+                <label>5</label>
+                <input
+                  type="radio"
+                  value="5"
+                  name="rating"
+                />
+              </form> */}
+
+              <ReactStars
+                count={5}
+                onChange={ratingChanged}
+                size={30}
+                color2={'#ffd700'} />,
+
+
             </div>
 
             <div className="col-sm-12 col-md-12 col-lg-12 run-show-comments-box">

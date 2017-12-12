@@ -14,18 +14,17 @@ class ShapesSubmit extends React.Component {
 
   componentDidMount() {
     ///////----------*****update*********
-    
+
     // Axios
     //   .all([
     //     Axios
     //       .get(`/api/shapes/${this.props.match.params.id}`),
     //     Axios
-    //       .get('/api/runs', {
+    //       .get('https://www.strava.com/api/v3/athlete/activities', {
     //         headers: { 'Authorization': `Bearer ${Auth.getStravaToken()}`}
     //       })
     //   ])
     //   .then(Axios.spread((shape, runs) => {
-
 
     Axios
       .get(`/api/shapes/${this.props.match.params.id}`)
@@ -49,7 +48,6 @@ class ShapesSubmit extends React.Component {
         // console.log(runs);
       })
       .catch(err => console.log('this is the error', err));
-
   }
 
   handleChange(target) {

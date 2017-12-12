@@ -37,7 +37,6 @@ class ShapesShow extends React.Component {
       .catch(err => console.log(err));
   }
 
-
   render() {
     if (!this.state.shape) return null;
     return (

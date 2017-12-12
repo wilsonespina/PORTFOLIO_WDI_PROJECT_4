@@ -12,7 +12,6 @@ import UsersIndex from '../users/UsersIndex';
 import UsersShow from '../users/UsersShow';
 
 import RunsShow from '../runs/RunsShow';
-// import RunsEdit from '../runs/RunsEdit';
 // import ProtectedRoute from './ProtectedRoute';
 
 const Routes = () => {
