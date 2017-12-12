@@ -17,10 +17,16 @@ class RunsShow extends React.Component {
     },
     comment: {
       content: ''
-    }
+    },
+    userRating: 0,
+    errors: null
   }
 
   componentWillMount() {
+    this.getRun();
+  }
+
+  getRun = () => {
     Axios
       .get(`/api/runs/${this.props.match.params.id}`)
       .then(res => this.setState({ run: res.data }))
@@ -71,27 +77,32 @@ class RunsShow extends React.Component {
       .catch(err => console.log(err));
   }
 
-  saveRating = (newRating) => {
-    const newArray = this.state.run.rating.push(newRating);
-    // console.log(newArray);
-    const run = Object.assign({}, this.state.run, { rating: this.state.run.rating });
-    // console.log(this.state.run);
+  handleRatingChange = (userRating) => {
+    this.setState({ userRating }, () => {
+      console.log(this.state);
+    });
+  }
+
+  saveRating = (e) => {
+    e.preventDefault();
 
     Axios
-      .put(`/api/runs/${this.props.match.params.id}`,  { run }, {
+      .post(`/api/runs/${this.props.match.params.id}/ratings`,  { value: this.state.userRating }, {
         headers: { 'Authorization': `Bearer ${Auth.getToken()}` }
       })
-      .then(() => {
-        this.setState({ run: run });
+      .then(res => {
+        this.setState({ run: res.data });
       })
-      .catch(err => this.setState({ errors: err.response.data.errors }));
+      .catch(err => this.setState({ errors: err.response.data.message }));
   }
 
   render() {
-    const sum = this.state.run.rating.reduce((total, amount) => total + amount);
-    const averageRating = parseFloat(Number(sum / this.state.run.rating.length).toFixed(1));
-    console.log(this.state.run.rating);
-    
+    // const sum = this.state.run.rating.reduce((total, amount) => total + amount);
+    // const averageRating = parseFloat(Number(sum / this.state.run.rating.length).toFixed(1));
+    // console.log(this.state.run);
+
+    // const ratingChanged = saveRating();
+
     return (
       <div className="row">
         <div className="container">
@@ -107,19 +118,25 @@ class RunsShow extends React.Component {
             <div className="run-show-info-box">
               { this.state.run.user && <div>
                 <h2>Run by: {this.state.run.user.username}</h2>
-                <p>Average rating: {this.state.run.rating.length > 0 ? averageRating : 'TBC'}</p>,
+                <p>Average rating: {this.state.run.averageRating}</p>,
               </div>}
               <button className="btn btn-danger" onClick={this.deleteRun}>DELETE RUN</button>
               <h3>YOUR RATING:</h3>
 
-              <form>
 
+
+
+              <form onSubmit= {this.saveRating} >
                 <ReactStars
                   count={5}
-                  onChange={this.saveRating}
                   size={50}
-                  color2={'#E76200'}
-                  onClick= {() => this.saveRating()} />
+                  value={this.state.userRating}
+                  onChange={this.handleRatingChange}
+                  color2={'#E76200'} />
+                {/* onSubmit= {() => this.saveRating(averageRating)} /> */}
+
+                <button >Submit rating</button>
+                {this.state.errors && <span>{this.state.errors}</span>}
               </form>
 
 

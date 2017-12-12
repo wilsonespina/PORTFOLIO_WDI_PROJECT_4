@@ -82,7 +82,13 @@ User.create([
         return Run.create([
           {
             user: Users[0],
-            rating: [4.5],
+            ratings: [{
+              value: 5,
+              createdBy: Users[1]
+            }, {
+              value: 5,
+              createdBy: Users[3]
+            }],
             date: '2017-06-13T11:00:00Z',
             shape: Shape[0],
             summary_polyline: 'irkyHvra@uBnF~HjDsC|b@hJ_Uv]re@~Gc^uSat@~OaNuNukAu^`VuFnr@hGza@',
@@ -97,7 +103,6 @@ User.create([
           },
           {
             user: Users[1],
-            rating: [3.8],
             date: '2017-11-13T14:00:00Z',
             shape: Shape[0],
             summary_polyline: 'irkyHvra@uBnF~HjDsC|b@hJ_Uv]re@~Gc^uSat@~OaNuNukAu^`VuFnr@hGza@',
@@ -109,157 +114,157 @@ User.create([
               content: 'Fantastic!',
               createdBy: Users[4]
             }]
-          },
-          {
-            user: Users[2],
-            rating: [4.2],
-            date: '2017-12-14T18:00:00Z',
-            shape: Shape[1],
-            summary_polyline: 'qajyHli`@_GbHUoc@tFaV?iRkO?k`@cAkBoc@iIzY_FpVaOjS~FlEvPuIhDxw@`\\~b@`[mErAio@',
-            start_latlng: [51.50265, -0.17346],
-            comments: [{
-              content: 'Rabbit',
-              createdBy: Users[1]
-            }, {
-              content: 'Brill',
-              createdBy: Users[4]
-            }]
-          },
-          {
-            user: Users[3],
-            rating: [4.5],
-            date: '2017-12-14T18:00:00Z',
-            shape: Shape[1],
-            summary_polyline: 'g}iyHdvb@s@{o@kQ{SjPmb@UcPaOgXk`@tAuMtPuHfQ`K}EuDrOtHmE~HhKkFvg@jU~j@`a@fQ',
-            start_latlng: [51.50265, -0.17346],
-            comments: [{
-              content: 'Rabbit',
-              createdBy: Users[2]
-            }, {
-              content: 'Brill',
-              createdBy: Users[0]
-            }]
-          },
-          {
-            user: Users[4],
-            rating: [4.5],
-            date: '2017-12-14T18:00:00Z',
-            shape: Shape[2],
-            summary_polyline: 'ijkyH`|b@`j@lEJ}nAa^tPkTlEtBhJh@vJ_DxJjSiKjTlE??kRpGkPrO',
-            start_latlng: [51.50265, -0.17346],
-            comments: [{
-              content: 'Cat',
-              createdBy: Users[5]
-            }, {
-              content: 'Brill',
-              createdBy: Users[1]
-            }]
-          },
-          {
-            user: Users[3],
-            rating: [4.5],
-            date: '2017-12-14T18:00:00Z',
-            shape: Shape[2],
-            summary_polyline: 'ijkyH`|b@`j@lEJ}nAa^tPkTlEtBhJh@vJ_DxJjSiKjTlE??kRpGXzBVYbG}ApJxDaHnF',
-            start_latlng: [51.50265, -0.17346],
-            comments: [{
-              content: 'Cat',
-              createdBy: Users[2]
-            }, {
-              content: 'Brill',
-              createdBy: Users[0]
-            }]
-          },
-          {
-            user: Users[2],
-            rating: [4.5],
-            date: '2017-12-14T18:00:00Z',
-            shape: Shape[3],
-            summary_polyline: 'irkyHja`@jXPuEaVjH}b@wNcWiJvJ~GzCuVza@hH|E`QkLkDnUiMlT',
-            start_latlng: [51.50265, -0.17346],
-            comments: [{
-              content: 'Bird',
-              createdBy: Users[3]
-            }, {
-              content: 'Brill',
-              createdBy: Users[4]
-            }]
-          },
-          {
-            user: Users[1],
-            rating: [4.1],
-            date: '2017-10-14T18:00:00Z',
-            shape: Shape[3],
-            summary_polyline: 'iokyH|yb@jRdIHuWjPwu@hDkgAuXwX_AeIkLtPjC|SaPrm@`KvBhQq@iD~TuP`OUlE~Kza@uK`O',
-            start_latlng: [51.50265, -0.17346],
-            comments: [{
-              content: 'Bird',
-              createdBy: Users[4]
-            }, {
-              content: 'Awesome running skills',
-              createdBy: Users[0]
-            }]
-          },
-          {
-            user: Users[0],
-            rating: [4.1],
-            date: '2017-10-14T18:00:00Z',
-            shape: Shape[4],
-            summary_polyline: 'sjkyHfab@_FnMhNfCjCqVjT{a@tGvBk@qU_Hr@kTo\\_QwXaH`V`MlE_Dvg@~G`d@',
-            start_latlng: [51.50265, -0.17346],
-            comments: [{
-              content: 'Bull',
-              createdBy: Users[1]
-            }, {
-              content: 'Awesome running skills',
-              createdBy: Users[3]
-            }]
-          },
-          {
-            user: Users[1],
-            rating: [4.1],
-            date: '2017-10-14T18:00:00Z',
-            shape: Shape[4],
-            summary_polyline: 'izkyHlz_@hDkKu@o\\iLaO~MQ~C{DtBpGtJ|DhF?SvQkHhCuGpGI|S_GeA',
-            start_latlng: [51.50265, -0.17346],
-            comments: [{
-              content: 'Bull',
-              createdBy: Users[4]
-            }, {
-              content: 'Awesome running skills',
-              createdBy: Users[0]
-            }]
-          },
-          {
-            user: Users[2],
-            rating: [4.1],
-            date: '2017-10-14T18:00:00Z',
-            shape: Shape[5],
-            summary_polyline: '_tkyHbj^tBPkD~TtDs@tFeXtLvQ~C_NiGgJuCpGtBsOtUjL^tf@_Nho@uLkSkBoMuJzD_EoF_FcP~Hmb@tDhC',
-            start_latlng: [51.50265, -0.17346],
-            comments: [{
-              content: 'Seahorse',
-              createdBy: Users[1]
-            }, {
-              content: 'Awesome running skills',
-              createdBy: Users[4]
-            }]
-          },
-          {
-            user: Users[3],
-            rating: [4.1],
-            date: '2017-10-14T18:00:00Z',
-            shape: Shape[5],
-            summary_polyline: '_tkyHt~_@jNdA~JiCtCuu@_N}SaHzR~B|EtBsH~D{CjChRkK`VuPk[_@lTuFuWiJ`VhEn\\tIgJ~AhR',
-            start_latlng: [51.50265, -0.17346],
-            comments: [{
-              content: 'Sea Horse',
-              createdBy: Users[2]
-            }, {
-              content: 'Awesome running skills',
-              createdBy: Users[0]
-            }]
           }
+          // {
+          //   user: Users[2],
+          //   rating: [4.2],
+          //   date: '2017-12-14T18:00:00Z',
+          //   shape: Shape[1],
+          //   summary_polyline: 'qajyHli`@_GbHUoc@tFaV?iRkO?k`@cAkBoc@iIzY_FpVaOjS~FlEvPuIhDxw@`\\~b@`[mErAio@',
+          //   start_latlng: [51.50265, -0.17346],
+          //   comments: [{
+          //     content: 'Rabbit',
+          //     createdBy: Users[1]
+          //   }, {
+          //     content: 'Brill',
+          //     createdBy: Users[4]
+          //   }]
+          // },
+          // {
+          //   user: Users[3],
+          //   rating: [4.5],
+          //   date: '2017-12-14T18:00:00Z',
+          //   shape: Shape[1],
+          //   summary_polyline: 'g}iyHdvb@s@{o@kQ{SjPmb@UcPaOgXk`@tAuMtPuHfQ`K}EuDrOtHmE~HhKkFvg@jU~j@`a@fQ',
+          //   start_latlng: [51.50265, -0.17346],
+          //   comments: [{
+          //     content: 'Rabbit',
+          //     createdBy: Users[2]
+          //   }, {
+          //     content: 'Brill',
+          //     createdBy: Users[0]
+          //   }]
+          // },
+          // {
+          //   user: Users[4],
+          //   rating: [4.5],
+          //   date: '2017-12-14T18:00:00Z',
+          //   shape: Shape[2],
+          //   summary_polyline: 'ijkyH`|b@`j@lEJ}nAa^tPkTlEtBhJh@vJ_DxJjSiKjTlE??kRpGkPrO',
+          //   start_latlng: [51.50265, -0.17346],
+          //   comments: [{
+          //     content: 'Cat',
+          //     createdBy: Users[5]
+          //   }, {
+          //     content: 'Brill',
+          //     createdBy: Users[1]
+          //   }]
+          // },
+          // {
+          //   user: Users[3],
+          //   rating: [4.5],
+          //   date: '2017-12-14T18:00:00Z',
+          //   shape: Shape[2],
+          //   summary_polyline: 'ijkyH`|b@`j@lEJ}nAa^tPkTlEtBhJh@vJ_DxJjSiKjTlE??kRpGXzBVYbG}ApJxDaHnF',
+          //   start_latlng: [51.50265, -0.17346],
+          //   comments: [{
+          //     content: 'Cat',
+          //     createdBy: Users[2]
+          //   }, {
+          //     content: 'Brill',
+          //     createdBy: Users[0]
+          //   }]
+          // },
+          // {
+          //   user: Users[2],
+          //   rating: [4.5],
+          //   date: '2017-12-14T18:00:00Z',
+          //   shape: Shape[3],
+          //   summary_polyline: 'irkyHja`@jXPuEaVjH}b@wNcWiJvJ~GzCuVza@hH|E`QkLkDnUiMlT',
+          //   start_latlng: [51.50265, -0.17346],
+          //   comments: [{
+          //     content: 'Bird',
+          //     createdBy: Users[3]
+          //   }, {
+          //     content: 'Brill',
+          //     createdBy: Users[4]
+          //   }]
+          // },
+          // {
+          //   user: Users[1],
+          //   rating: [4.1],
+          //   date: '2017-10-14T18:00:00Z',
+          //   shape: Shape[3],
+          //   summary_polyline: 'iokyH|yb@jRdIHuWjPwu@hDkgAuXwX_AeIkLtPjC|SaPrm@`KvBhQq@iD~TuP`OUlE~Kza@uK`O',
+          //   start_latlng: [51.50265, -0.17346],
+          //   comments: [{
+          //     content: 'Bird',
+          //     createdBy: Users[4]
+          //   }, {
+          //     content: 'Awesome running skills',
+          //     createdBy: Users[0]
+          //   }]
+          // },
+          // {
+          //   user: Users[0],
+          //   rating: [4.1],
+          //   date: '2017-10-14T18:00:00Z',
+          //   shape: Shape[4],
+          //   summary_polyline: 'sjkyHfab@_FnMhNfCjCqVjT{a@tGvBk@qU_Hr@kTo\\_QwXaH`V`MlE_Dvg@~G`d@',
+          //   start_latlng: [51.50265, -0.17346],
+          //   comments: [{
+          //     content: 'Bull',
+          //     createdBy: Users[1]
+          //   }, {
+          //     content: 'Awesome running skills',
+          //     createdBy: Users[3]
+          //   }]
+          // },
+          // {
+          //   user: Users[1],
+          //   rating: [4.1],
+          //   date: '2017-10-14T18:00:00Z',
+          //   shape: Shape[4],
+          //   summary_polyline: 'izkyHlz_@hDkKu@o\\iLaO~MQ~C{DtBpGtJ|DhF?SvQkHhCuGpGI|S_GeA',
+          //   start_latlng: [51.50265, -0.17346],
+          //   comments: [{
+          //     content: 'Bull',
+          //     createdBy: Users[4]
+          //   }, {
+          //     content: 'Awesome running skills',
+          //     createdBy: Users[0]
+          //   }]
+          // },
+          // {
+          //   user: Users[2],
+          //   rating: [4.1],
+          //   date: '2017-10-14T18:00:00Z',
+          //   shape: Shape[5],
+          //   summary_polyline: '_tkyHbj^tBPkD~TtDs@tFeXtLvQ~C_NiGgJuCpGtBsOtUjL^tf@_Nho@uLkSkBoMuJzD_EoF_FcP~Hmb@tDhC',
+          //   start_latlng: [51.50265, -0.17346],
+          //   comments: [{
+          //     content: 'Seahorse',
+          //     createdBy: Users[1]
+          //   }, {
+          //     content: 'Awesome running skills',
+          //     createdBy: Users[4]
+          //   }]
+          // },
+          // {
+          //   user: Users[3],
+          //   rating: [4.1],
+          //   date: '2017-10-14T18:00:00Z',
+          //   shape: Shape[5],
+          //   summary_polyline: '_tkyHt~_@jNdA~JiCtCuu@_N}SaHzR~B|EtBsH~D{CjChRkK`VuPk[_@lTuFuWiJ`VhEn\\tIgJ~AhR',
+          //   start_latlng: [51.50265, -0.17346],
+          //   comments: [{
+          //     content: 'Sea Horse',
+          //     createdBy: Users[2]
+          //   }, {
+          //     content: 'Awesome running skills',
+          //     createdBy: Users[0]
+          //   }]
+          // }
         ]);
       });
 

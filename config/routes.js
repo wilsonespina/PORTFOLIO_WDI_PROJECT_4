@@ -29,9 +29,12 @@ router.route('/runs/:id')
 router.route('/runs/:id/comments')
   .post(secureRoute, runs.createComment);
 
+
 router.route('/runs/:id/comments/:commentId')
   .delete(secureRoute, runs.deleteComment);
 
+router.route('/runs/:id/ratings')
+  .post(secureRoute, runs.createRating);
 //--------------------************-----------------------
 
 router.route('/users')

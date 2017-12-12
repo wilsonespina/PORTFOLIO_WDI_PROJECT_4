@@ -32,14 +32,15 @@ function runsShow(req, res, next) {
 }
 
 function runsUpdate(req, res, next) {
-  console.log(req);
-
   Run
     .findById(req.params.id)
     .exec()
     .then((run) => {
+      console.log('run pre save', run);
       if(!run) return res.notFound();
-      run = Object.assign(run, req.body);
+      for (const field in req.body) {
+        run[field] = req.body[field];
+      }
       return run.save();
     })
     .then(run => res.json(run))
@@ -87,6 +88,30 @@ function deleteComment(req, res, next) {
     .catch(next);
 }
 
+function createRating(req, res, next) {
+  req.body.createdBy = req.currentUser.id;
+
+  console.log('THIS IS REQ BODY AFTER MANAGE', req.body);
+
+  Run
+    .findById(req.params.id)
+    .exec()
+    .then(run => {
+      if (!run) return res.notFound();
+
+      const rating = run.ratings.find(rating => `${rating.createdBy}` === `${req.currentUser.id}`);
+
+      if (!rating) {
+        run.ratings.push(req.body);
+        run.save();
+        return res.status(201).json(run);
+      } else {
+        return res.status(500).json({message: 'You cannot rate things twice !!!!!!'});
+      }
+    })
+    .catch(next);
+}
+
 // function saveRating(req, res, next) {
 //
 // }
@@ -97,7 +122,7 @@ module.exports = {
   show: runsShow,
   update: runsUpdate,
   delete: runsDelete,
-  createComment: createComment,
-  deleteComment: deleteComment
-  // saveRating: saveRating
+  createComment,
+  deleteComment,
+  createRating
 };
