@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Axios from 'axios';
-import ReactStars from 'react-stars'
+import ReactStars from 'react-stars';
 
 
 import Auth from '../../lib/Auth';
@@ -75,8 +75,8 @@ class RunsShow extends React.Component {
 
   }
 
-
   render() {
+console.log(this.state.run);
 
     return (
       <div className="row">

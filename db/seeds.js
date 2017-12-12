@@ -115,7 +115,7 @@ User.create([
             rating: 4.2,
             date: '2017-12-14T18:00:00Z',
             shape: Shape[1],
-            summary_polyline: 'qajyHli`@_GbHUoc@tFaV?iRkO?k`@cAkBoc@iIzY_FpVaOjS~FlEvPuIhDxw@`\~b@`[mErAio@',
+            summary_polyline: 'qajyHli`@_GbHUoc@tFaV?iRkO?k`@cAkBoc@iIzY_FpVaOjS~FlEvPuIhDxw@`\\~b@`[mErAio@',
             start_latlng: [51.50265, -0.17346],
             comments: [{
               content: 'Rabbit',
@@ -205,7 +205,7 @@ User.create([
             rating: 4.1,
             date: '2017-10-14T18:00:00Z',
             shape: Shape[4],
-            summary_polyline: 'sjkyHfab@_FnMhNfCjCqVjT{a@tGvBk@qU_Hr@kTo\_QwXaH`V`MlE_Dvg@~G`d@',
+            summary_polyline: 'sjkyHfab@_FnMhNfCjCqVjT{a@tGvBk@qU_Hr@kTo\\_QwXaH`V`MlE_Dvg@~G`d@',
             start_latlng: [51.50265, -0.17346],
             comments: [{
               content: 'Bull',
@@ -220,7 +220,7 @@ User.create([
             rating: 4.1,
             date: '2017-10-14T18:00:00Z',
             shape: Shape[4],
-            summary_polyline: 'izkyHlz_@hDkKu@o\iLaO~MQ~C{DtBpGtJ|DhF?SvQkHhCuGpGI|S_GeA',
+            summary_polyline: 'izkyHlz_@hDkKu@o\\iLaO~MQ~C{DtBpGtJ|DhF?SvQkHhCuGpGI|S_GeA',
             start_latlng: [51.50265, -0.17346],
             comments: [{
               content: 'Bull',
@@ -250,7 +250,7 @@ User.create([
             rating: 4.1,
             date: '2017-10-14T18:00:00Z',
             shape: Shape[5],
-            summary_polyline: '_tkyHt~_@jNdA~JiCtCuu@_N}SaHzR~B|EtBsH~D{CjChRkK`VuPk[_@lTuFuWiJ`VhEn\tIgJ~AhR',
+            summary_polyline: '_tkyHt~_@jNdA~JiCtCuu@_N}SaHzR~B|EtBsH~D{CjChRkK`VuPk[_@lTuFuWiJ`VhEn\\tIgJ~AhR',
             start_latlng: [51.50265, -0.17346],
             comments: [{
               content: 'Sea Horse',
