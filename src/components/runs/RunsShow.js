@@ -79,7 +79,7 @@ class RunsShow extends React.Component {
 
   handleRatingChange = (userRating) => {
     this.setState({ userRating }, () => {
-      console.log(this.state);
+      console.log('change', this.state);
     });
   }
 
@@ -92,16 +92,22 @@ class RunsShow extends React.Component {
       })
       .then(res => {
         this.setState({ run: res.data });
+        console.log(this.state);
       })
+
+      // .then(res => {
+      //   this.setState({ run: res.data });
+      // })
+
+
+      // .then(res => {
+      //   const run = Object.assign({}, this.state.run, { rating: res.data.rating });
+      //   this.setState({ run, rating: { value: this.state.userRating } });
+      // })
       .catch(err => this.setState({ errors: err.response.data.message }));
   }
 
   render() {
-    // const sum = this.state.run.rating.reduce((total, amount) => total + amount);
-    // const averageRating = parseFloat(Number(sum / this.state.run.rating.length).toFixed(1));
-    // console.log(this.state.run);
-
-    // const ratingChanged = saveRating();
 
     return (
       <div className="row">

@@ -90,12 +90,12 @@ function deleteComment(req, res, next) {
 
 function createRating(req, res, next) {
   req.body.createdBy = req.currentUser.id;
-
-  console.log('THIS IS REQ BODY AFTER MANAGE', req.body);
-
+  // console.log('THIS IS REQ BODY AFTER MANAGE', req.body);
   Run
     .findById(req.params.id)
+    .populate('shape user comments.createdBy')
     .exec()
+
     .then(run => {
       if (!run) return res.notFound();
 
@@ -112,9 +112,7 @@ function createRating(req, res, next) {
     .catch(next);
 }
 
-// function saveRating(req, res, next) {
-//
-// }
+
 
 module.exports = {
   index: runsIndex,
