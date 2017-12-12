@@ -11,6 +11,9 @@ class RunsShow extends React.Component {
     shape: {},
     run: {
       comments: []
+    },
+    comment: {
+      content: ''
     }
   }
 
@@ -24,30 +27,43 @@ class RunsShow extends React.Component {
       });
   }
 
-  handleChange = ({ target: { name, value }}) => {
-    const run = Object.assign({}, this.state.run, { [name]: value });
-    this.setState({ run: run });
-    console.log('change', this.state.run);
+  handleChange = ({ target: { name, value } }) => {
+    this.setState({ comment: {[name]: value} });
   }
 
-  addComment = (e) => {
+  submitComment = (e) => {
     e.preventDefault();
 
     Axios
-      .post(`/api/runs/${this.props.match.params.id}/comments`, this.state.run.comments[0], {
-        headers: { 'Authorization': `Bearer ${Auth.getToken()}`}
+      .post(`/api/runs/${this.props.match.params.id}/comments`, this.state.comment, {
+        headers: { 'Authorization': `Bearer ${Auth.getToken()}` }
       })
-      .then(this.setState({ run: this.state.run }))
-      .catch(err => console.log(err));
-    console.log('submit', this.state.run);
+      .then(res => {
+        const run = Object.assign({}, this.state.run, { comments: res.data.comments });
+        this.setState({ run, comment: { content: '' } });
+      })
+      .catch(err => this.setState({ errors: err.response.data.errors }));
   }
 
-  // deleteComment() {
-  //
-  // }
+  deleteComment = (comment) => {
+    Axios
+      .delete(`/api/runs/${this.props.match.params.id}/comments/${this.state.comment.id}`, this.state.comment, {
+        headers: { 'Authorization': `Bearer ${Auth.getToken()}` }
+      })
+
+
+      // .then(res => {
+      //   const run = Object.assign({}, this.state.run, { comments: res.data.comments });
+      //   this.setState({ run, comment: { content: '' } });
+      // })
+      .catch(err => this.setState({ errors: err.response.data.errors }));
+
+
+  }
 
   render() {
-    // console.log(this.state.run);
+console.log(this.state.run);
+
     return (
       <div className="row">
         <div className="container">
@@ -81,7 +97,7 @@ class RunsShow extends React.Component {
                 })}
               </div>}
 
-              <form className="input-form" onSubmit={this.addComment}>
+              <form className="input-form" onSubmit={this.submitComment}>
                 <div className="run-show-comment-form">
                   <label className="comment-label">Comment</label>
                   <input
@@ -91,7 +107,7 @@ class RunsShow extends React.Component {
                     id="comment-box"
                     onChange={this.handleChange}
                   />
-                  <button className="btn">POST</button>
+                  <button className="btn-info">POST</button>
                 </div>
               </form>
 

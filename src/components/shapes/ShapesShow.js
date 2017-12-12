@@ -61,7 +61,7 @@ class ShapesShow extends React.Component {
             <Link to="/users"><button>My Runs</button></Link>
             <Link to={`/shapes/${this.state.shape.id}/submit`}><button>Add my own run</button></Link>
 
-            { this.state.runs.map(run => {
+            { this.state.runs.slice(0).reverse().map(run => {
               return(
                 <div key={run.id} className="col-md-10 col-sm-10 col-xs-12">
                   <Link to={`/runs/${run.id}`}><h2>{run.shape.name}</h2></Link>

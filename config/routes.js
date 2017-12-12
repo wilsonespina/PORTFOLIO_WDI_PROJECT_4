@@ -29,10 +29,10 @@ router.route('/runs/:id')
   .delete(secureRoute, runs.delete);
 
 router.route('/runs/:id/comments')
-  .post(runs.createComment);
+  .post(secureRoute, runs.createComment);
 
 router.route('/runs/:id/comments/:commentId')
-  .delete(runs.deleteComment);
+  .delete(secureRoute, runs.deleteComment);
 
 //--------------------************-----------------------
 

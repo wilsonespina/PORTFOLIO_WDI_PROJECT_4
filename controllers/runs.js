@@ -58,19 +58,19 @@ function runsDelete(req, res, next) {
 }
 
 function createComment(req, res, next) {
-  console.log(req.body);
-  // req.body.createdBy.username = req.currentUser._id;
+  req.body.createdBy = req.currentUser;
 
-  // Run.findById(req.params.id)
-  //   .exec()
-  //   .then(run => {
-  //     if (!run) return res.notFound();
-  //     console.log('this is the current run', req.run);
-  //     run.comments.push(req.body);
-  //     return run.save();
-  //   })
-  //   .then(run => res.status(201).json(run))
-  //   .catch(next);
+  Run.findById(req.params.id)
+    .populate('comments.createdBy')
+    .exec()
+    .then(run => {
+      if (!run) return res.notFound();
+      console.log('this is the current run', req.run);
+      run.comments.push(req.body);
+      return run.save();
+    })
+    .then(run => res.status(201).json(run))
+    .catch(next);
 }
 
 function deleteComment(req, res, next) {
