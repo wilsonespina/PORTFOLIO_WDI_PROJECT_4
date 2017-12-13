@@ -14,13 +14,13 @@ const Routes = () => {
   return (
     <Switch>
       <Route exact path="/shapes" component={ShapesIndex} />
-      <Route path="/login" component={Login} />
-      <Route path="/" component={Login} />
       <ProtectedRoute path="/shapes/:id/submit" component={ShapesSubmit} />
       <ProtectedRoute path="/shapes/:id" component={ShapesShow} />
       <ProtectedRoute path="/users/:id" component={UsersShow} />
       <ProtectedRoute path="/users" component={UsersIndex} />
       <ProtectedRoute path="/runs/:id" component={RunsShow} />
+      <Route path="/" component={Login} />
+      <Route path="/login" component={Login} />
     </Switch>
   );
 };

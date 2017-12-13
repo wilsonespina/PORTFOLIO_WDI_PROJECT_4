@@ -28,7 +28,7 @@ class UsersIndex extends React.Component {
         console.log('runs data', runs);
       })
       .catch(err => console.log('this is the error', err));
-      
+
   }
 
 
@@ -36,20 +36,18 @@ class UsersIndex extends React.Component {
 
   render() {
     // console.log(this.state.runs);
+    const currentUser = Auth.getPayload();
+    console.log(currentUser);
+
     return (
       <div>
         <div className="row">
-          {/* <div className="col-md-12">
-            <SearchBar handleSearch={ this.handleSearch } />
-            <Link to="/runs/new" className="btn btn-info index-add-button">
-              <i className="fa fa-plus" aria-hidden="true"></i>Add a Run
-            </Link>
-          </div> */}
+
 
           { this.state.runs.map(run => {
             return(
               <div key={run.id} className="image-tile col-md-6 col-sm-6 col-xs-12">
-                <Link to={`/runs/${run.id}`}>
+                <Link to={`/users/${currentUser.userId}`}>
                   <h1>Current USER::{run.athlete.id}</h1>
                 </Link>
                 <p>Distance: {run.distance}m</p>

@@ -33,8 +33,18 @@ button[disabled]{
 .main-button {
   background: #C5C8CE;
   border: 1px solid lighten(#C5C8CE, 10%);
+  width: 100px;
+  height: 40px;
+  font-size: 18px;
 
   &:hover {
     background: darken(#C5C8CE, 10%);
   }
 }
+
+@media (max-width:500px){.main-button
+  {
+    height: 30px;
+    width: 60px;
+    font-size: 14px;
+  }};

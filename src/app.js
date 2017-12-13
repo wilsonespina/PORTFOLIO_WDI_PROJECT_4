@@ -1,9 +1,11 @@
 import React from 'react';
 import ReactDOM  from 'react-dom';
-import { BrowserRouter as Router, Link } from 'react-router-dom';
+import { BrowserRouter as Router } from 'react-router-dom';
 
 import Routes from './components/utility/Routes';
 import Navbar from './components/utility/Navbar';
+import Auth from './lib/Auth';
+import BackButton from './components/utility/BackButton';
 
 import 'font-awesome/css/font-awesome.css';
 import 'react-router-bootstrap';
@@ -18,8 +20,8 @@ class App extends React.Component {
         <div className="container-fluid">
 
           <header>
-            {/* <Link to="/shapes"><h1>TRACE</h1></Link> */}
             <Navbar />
+            {Auth.isAuthenticated() && <BackButton />}
           </header>
 
           <main>
