@@ -28,11 +28,7 @@ class UsersIndex extends React.Component {
         console.log('runs data', runs);
       })
       .catch(err => console.log('this is the error', err));
-
   }
-
-
-
 
   render() {
     // console.log(this.state.runs);

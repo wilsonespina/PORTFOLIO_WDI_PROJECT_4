@@ -7,16 +7,29 @@ import Auth from '../../lib/Auth';
 class UsersShow extends React.Component {
   state = {
     user: {},
+    activities: [],
     runs: []
   }
 
   componentWillMount() {
+
+
     Axios
       .get(`/api/users/${this.props.match.params.id}`)
       .then(res => {
+        //ADD FILTER TO ONLY SHOW RUNS BELONGING TO USER***************
+
         this.setState({ user: res.data });
         console.log('user res', res.data);
       })
+      .catch(err => {
+        if(err.response.status === 404) return this.props.history.replace('/404');
+        console.log(err);
+      });
+
+    Axios
+      .get('/api/runs')
+      .then(res => this.setState({ run: res.data }))
       .catch(err => {
         if(err.response.status === 404) return this.props.history.replace('/404');
         console.log(err);
@@ -27,8 +40,8 @@ class UsersShow extends React.Component {
         headers: { Authorization: `Bearer ${Auth.getStravaToken()}`}
       })
       .then(res => {
-        this.setState({ runs: res.data });
-        console.log('runs res', res.data);
+        this.setState({ activities: res.data });
+        console.log('activities res', res.data);
       })
       .catch(err => console.log('this is the error', err));
   }
@@ -42,7 +55,7 @@ class UsersShow extends React.Component {
       <div className="row">
         <div className="row show-user-profile">
           <div className="col-xs-4 col-sm-4 col-md-4 col-lg-4 show-user-avatar">
-            <img src={this.state.runs.profile} className="show-user-avatar"/>
+            <img src={this.state.activities.profile} className="show-user-avatar"/>
           </div>
 
           <div className="col-xs-8 col-sm-8 col-md-8 col-lg-8 show-user-info">

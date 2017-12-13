@@ -10,6 +10,9 @@ import axios from 'axios';
 class OAuthButton extends React.Component {
 
   componentWillMount() {
+
+    const currentUser = Auth.getPayload();
+
     this.provider = OAuth.getProvider(this.props.provider);
 
     if(!location.search.match(/code/) || localStorage.getItem('provider') !== this.provider.name) return false;
@@ -24,7 +27,10 @@ class OAuthButton extends React.Component {
       })
       .then(() => localStorage.removeItem('provider'))
       .then(() => this.props.history.replace(this.props.location.pathname))
-      .then(() => this.props.history.push('/shapes'));
+      .then(() => this.props.history.push(`/users/${currentUser.userId}`));
+
+
+      //ADD TIMEOUT FOR LOGIN?
   }
 
   setProvider = () => {
