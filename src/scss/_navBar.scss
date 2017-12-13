@@ -27,6 +27,8 @@ div.nav-bottom {
 .nav-tile-icon {
   font-size: 100px;
 }
+@media (max-width:500px){.nav-tile-icon{font-size: 34px}};
+
 
 .nav-trace {
   display: inline;
