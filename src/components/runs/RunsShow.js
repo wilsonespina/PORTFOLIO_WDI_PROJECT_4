@@ -98,11 +98,8 @@ class RunsShow extends React.Component {
   }
 
   render() {
-
     const currentUser = Auth.getPayload();
-    console.log(currentUser.userId);
-    // console.log(this.state.run.user);
-
+    console.log(this.state);
     return (
       <div className="row">
         <div className="container">

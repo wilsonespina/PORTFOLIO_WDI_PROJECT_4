@@ -42,6 +42,9 @@ const runSchema = new mongoose.Schema({
   start_latlng: { type: Array },
   summary_polyline: { type: String, trim: true },
   comments: [commentSchema]
+},
+{
+  timestamps: true
 });
 
 runSchema

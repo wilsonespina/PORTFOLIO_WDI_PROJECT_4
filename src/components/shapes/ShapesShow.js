@@ -15,7 +15,8 @@ class ShapesShow extends React.Component {
     runs: [],
     averageRating: '',
     sortBy: '',
-    sortDirection: ''
+    sortDirection: '',
+    query: ''
   }
 
   componentWillMount() {
@@ -43,20 +44,24 @@ class ShapesShow extends React.Component {
       .catch(err => console.log(err));
   }
 
+  handleSearch = (e) => {
+    this.setState({ query: e.target.value });
+  }
+
   handleSort = (e) => {
     const [sortBy, sortDirection] = e.target.value.split('|');
     this.setState({ sortBy, sortDirection});
   }
 
   render() {
-    const { sortBy, sortDirection, runs } = this.state;
-    // const regex = new RegExp(query, 'i');
-    const regexC = new RegExp(runs, 'i');
+    const { sortBy, sortDirection, query } = this.state;
+    const regex = new RegExp(query, 'i');
     const filterSort = _.orderBy(this.state.runs, [sortBy], [sortDirection]);
-    const sorted = _.filter(filterSort, (run) => regexC.test([run.date, run.averageRating]));
+    const sorted = _.filter(filterSort, (run) => regex.test([run.user.username]));
 
     if (!this.state.shape) return null;
-    console.log('filetered', filterSort);
+    // console.log(this.state.runs);
+    console.log('sorted', sorted);
 
     return (
       <div className="row">
@@ -67,7 +72,9 @@ class ShapesShow extends React.Component {
               <img src={this.state.shape.image} className="show-main-image" />
             </div>
 
-            <SearchBar handleSort={this.handleSort} />
+            <SearchBar
+              handleSort={this.handleSort}
+              handleSearch={this.handleSearch} />
 
           </div>
 
@@ -77,7 +84,7 @@ class ShapesShow extends React.Component {
             <Link to="/users"><button>My Runs</button></Link>
             <Link to={`/shapes/${this.state.shape.id}/submit`}><button>Add my own run</button></Link>
 
-            { filterSort.map(run => {
+            { sorted.map(run => {
               return(
                 <div key={run.id} className="col-md-10 col-sm-10 col-xs-12">
                   <Link to={`/runs/${run.id}`}><h2>{run.shape.name}</h2></Link>

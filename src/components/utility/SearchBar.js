@@ -1,9 +1,20 @@
 import React from 'react';
 
-const SearchBar = ({ handleSort }) => {
+const SearchBar = ({ handleSort, handleSearch }) => {
   return(
     <div className="row">
       <form className="col-lg-3 col-md-9 col-sm-6">
+
+        <div className="form-group">
+          <label htmlFor="name">Search by username</label>
+          <input
+            type="name"
+            className="form-control"
+            id="name"
+            name="name"
+            onChange={handleSearch}
+          />
+        </div>
 
         <div className="form-group">
           <label htmlFor="category">Sort</label>
@@ -14,12 +25,13 @@ const SearchBar = ({ handleSort }) => {
             onChange={ handleSort }
           >
             <option value="" disabled>Please Select</option>
-            <option default value="date|desc">Newest first</option>
+            <option value="date|desc">Newest first</option>
             <option value="date|asc">Oldest first</option>
             <option value="averageRating|desc">Rating (High - Low)</option>
             <option value="averageRating|asc">Rating (Low - High)</option>
           </select>
         </div>
+
       </form>
     </div>
   );
