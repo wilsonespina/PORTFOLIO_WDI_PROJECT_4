@@ -98,6 +98,11 @@ class RunsShow extends React.Component {
   }
 
   render() {
+
+    const currentUser = Auth.getPayload();
+    console.log(currentUser.userId);
+    // console.log(this.state.run.user);
+
     return (
       <div className="row">
         <div className="container">
@@ -116,7 +121,13 @@ class RunsShow extends React.Component {
                 <p>{moment(this.state.run.date).startOf('day').fromNow()}</p>
                 <p>Average rating: {this.state.run.averageRating}</p>,
               </div>}
-              <button className="btn btn-danger" onClick={this.deleteRun}>DELETE RUN</button>
+              {this.state.run.user && <button
+                className="btn btn-danger"
+                onClick={this.deleteRun}
+                disabled={currentUser.userId !== this.state.run.user.id}
+                // style={deleteButton}
+              >DELETE RUN</button>}
+
               <h3>YOUR RATING:</h3>
 
               <form onSubmit= {this.saveRating} >

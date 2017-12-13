@@ -22,3 +22,9 @@
 
 
 //LOGIN
+
+//GENERAL
+button:disabled,
+button[disabled]{
+  display: none;
+}

@@ -67,8 +67,10 @@ function createComment(req, res, next) {
     .exec()
     .then(run => {
       if (!run) return res.notFound();
-      console.log('this is the current run', req.run);
       run.comments.push(req.body);
+
+      console.log('this is the currentUser', req.currentUser);
+
       return run.save();
     })
     .then(run => res.status(201).json(run))
