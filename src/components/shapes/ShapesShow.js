@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Axios from 'axios';
+import moment from 'moment';
 
 // import BackButton from '../utility/BackButton';
 import GoogleMap from '../utility/GoogleMap';
@@ -61,8 +62,8 @@ class ShapesShow extends React.Component {
                   <Link to={`/runs/${run.id}`}><h2>{run.shape.name}</h2></Link>
                   <p>Rating: {run.averageRating}</p>
                   <p>Runner: {run.user.username}</p>
+                  <p>Run Date: {moment(run.date).startOf('day').fromNow()}</p>
                   <p>Start Time: {(run.date).substring(11, 16)}</p>
-                  <p>Start Date: {(run.date).substring(0, 10)}</p>
                   {run.start_latlng && <GoogleMap center={{lat: run.start_latlng[0], lng: run.start_latlng[1]}} path={run.summary_polyline} />}
                 </div>
               );

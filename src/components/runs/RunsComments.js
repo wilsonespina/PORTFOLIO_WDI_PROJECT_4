@@ -1,8 +1,11 @@
 import React from 'react';
+import moment from 'moment';
+
 
 // import BackButton from '../utility/BackButton';
 
 function RunsComments({ run, comment, submitComment, handleChange, deleteComment }) {
+  console.log(run);
   return (
     <div className="row">
       <h3>Comments</h3>
@@ -11,7 +14,9 @@ function RunsComments({ run, comment, submitComment, handleChange, deleteComment
           return(
             <div key={comment.id} className="run-show-comment-individual">
               <p>{comment.content}</p>
-              <p><strong>@{comment.createdBy.username}</strong></p>
+              <p>
+                <strong>@{comment.createdBy.username} {moment(comment.createdAt).fromNow()}</strong>
+              </p>
               <button className="btn-danger" onClick={() => deleteComment(comment.id)}>delete</button>
             </div>
           );

@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Axios from 'axios';
 import ReactStars from 'react-stars';
+import moment from 'moment';
 
 import RunsComments from './RunsComments';
 import Auth from '../../lib/Auth';
@@ -92,23 +93,11 @@ class RunsShow extends React.Component {
       })
       .then(res => {
         this.setState({ run: res.data });
-        console.log(this.state);
       })
-
-      // .then(res => {
-      //   this.setState({ run: res.data });
-      // })
-
-
-      // .then(res => {
-      //   const run = Object.assign({}, this.state.run, { rating: res.data.rating });
-      //   this.setState({ run, rating: { value: this.state.userRating } });
-      // })
       .catch(err => this.setState({ errors: err.response.data.message }));
   }
 
   render() {
-
     return (
       <div className="row">
         <div className="container">
@@ -124,6 +113,7 @@ class RunsShow extends React.Component {
             <div className="run-show-info-box">
               { this.state.run.user && <div>
                 <h2>Run by: {this.state.run.user.username}</h2>
+                <p>{moment(this.state.run.date).startOf('day').fromNow()}</p>
                 <p>Average rating: {this.state.run.averageRating}</p>,
               </div>}
               <button className="btn btn-danger" onClick={this.deleteRun}>DELETE RUN</button>
