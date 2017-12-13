@@ -28,3 +28,12 @@ button:disabled,
 button[disabled]{
   display: none;
 }
+
+.main-button {
+  background: #C5C8CE;
+  border: 1px solid lighten(#C5C8CE, 10%);
+
+  &:hover {
+    background: darken(#C5C8CE, 10%);
+  }
+}
