@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import Axios from 'axios';
 import ReactStars from 'react-stars';
 
-
+import RunsComments from './RunsComments';
 import Auth from '../../lib/Auth';
 import GoogleMap from '../utility/GoogleMap';
 // import Auth from '../../lib/Auth';
@@ -129,9 +129,6 @@ class RunsShow extends React.Component {
               <button className="btn btn-danger" onClick={this.deleteRun}>DELETE RUN</button>
               <h3>YOUR RATING:</h3>
 
-
-
-
               <form onSubmit= {this.saveRating} >
                 <ReactStars
                   count={5}
@@ -149,34 +146,13 @@ class RunsShow extends React.Component {
             </div>
 
             <div className="col-sm-12 col-md-12 col-lg-12 run-show-comments-box">
-              <h3>Comments</h3>
-              { this.state.run.comments && <div>
-                { this.state.run.comments.map(comment => {
-                  return(
-                    <div key={comment.id} className="run-show-comment-individual">
-                      <p>{comment.content}</p>
-                      <p><strong>@{comment.createdBy.username}</strong></p>
-                      <button className="btn-danger" onClick={() => this.deleteComment(comment.id)}>delete</button>
-                    </div>
-                  );
-                })}
-              </div>}
-
-              <form className="input-form" onSubmit={this.submitComment}>
-                <div className="run-show-comment-form">
-                  <label className="comment-label">Comment</label>
-                  <input
-                    type="text"
-                    className="form-control"
-                    name="content"
-                    id="comment-box"
-                    onChange={this.handleChange}
-                    value={this.state.comment.content}
-                  />
-                  <button className="btn-info">POST</button>
-                </div>
-              </form>
-
+              <RunsComments
+                run={this.state.run}
+                comment={this.state.comment}
+                submitComment={this.submitComment}
+                handleChange={this.handleChange}
+                deleteComment={this.deleteComment}
+              />
             </div>
 
           </div>
