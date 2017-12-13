@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Axios from 'axios';
+import moment from 'moment';
 
 import Auth from '../../lib/Auth';
 import GoogleMap from '../utility/GoogleMap';
@@ -90,7 +91,7 @@ class ShapesSubmit extends React.Component {
                         name="map"
                         onClick={() => this.handleChange(run)}
                       />
-                      <p>Run date: {(run.start_date_local).substring(0, 10)}</p>
+                      <p>Run date: {moment(run.start_date_local).startOf('day').fromNow()}</p>
                       <GoogleMap center={{lat: run.start_latlng[0], lng: run.start_latlng[1]}} path={run.map.summary_polyline} />
                     </label>
 
