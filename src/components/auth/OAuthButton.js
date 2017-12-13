@@ -36,7 +36,8 @@ class OAuthButton extends React.Component {
 
     return (
       <a
-        className="btn btn-primary"
+        className="btn btn-primary strava-login-button"
+        id="login-button"
         href={provider.authLink}
         onClick={this.setProvider}
       >
