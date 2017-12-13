@@ -92,7 +92,7 @@ class ShapesShow extends React.Component {
                   <p>Runner: {run.user.username}</p>
                   <p>Run Date: {moment(run.date).startOf('day').fromNow()}</p>
                   <p>Start Time: {(run.date).substring(11, 16)}</p>
-                  {run.start_latlng && <GoogleMap center={{lat: run.start_latlng[0], lng: run.start_latlng[1]}} path={run.summary_polyline} />}
+                  {run.start_latlng ? <GoogleMap center={{lat: run.start_latlng[0], lng: run.start_latlng[1]}} path={run.summary_polyline} /> : <img src="../../assets/Spinner.gif" />}
                 </div>
               );
             })}

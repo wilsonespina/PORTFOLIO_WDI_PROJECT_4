@@ -67,6 +67,7 @@ class ShapesSubmit extends React.Component {
   }
 
   render() {
+    console.log();
     return (
       <div className="row">
         <div className="shape-submit-left col-md-6 col-sm-6 col-xs-12">
@@ -92,7 +93,11 @@ class ShapesSubmit extends React.Component {
                         onClick={() => this.handleChange(run)}
                       />
                       <p>Run date: {moment(run.start_date_local).startOf('day').fromNow()}</p>
+
+                      {/* {run.summary_polyline ? <GoogleMap center={{lat: run.start_latlng[0], lng: run.start_latlng[1]}} path={run.summary_polyline} /> : <img src="../../assets/Spinner.gif" />} */}
+
                       <GoogleMap center={{lat: run.start_latlng[0], lng: run.start_latlng[1]}} path={run.map.summary_polyline} />
+
                     </label>
 
                   </div>

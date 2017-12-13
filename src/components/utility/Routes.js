@@ -12,20 +12,20 @@ import UsersIndex from '../users/UsersIndex';
 import UsersShow from '../users/UsersShow';
 
 import RunsShow from '../runs/RunsShow';
-// import ProtectedRoute from './ProtectedRoute';
+import ProtectedRoute from './ProtectedRoute';
 
 const Routes = () => {
   return (
     <Switch>
       <Route path="/login" component={Login} />
+      <Route path="/" component={Login} />
       <Route path="/register" component={Register} />
-      <Route exact path="/" component={ShapesIndex} />
-      <Route path="/shapes/:id/submit" component={ShapesSubmit} />
-      <Route path="/shapes/:id" component={ShapesShow} />
-      <Route path="/users/:id" component={UsersShow} />
-      <Route path="/users" component={UsersIndex} />
-      <Route path="/runs/:id" component={RunsShow} />
-      {/* <ProtectedRoute path="/runs/:id/edit" component={RunsEdit} /> */}
+      <ProtectedRoute path="/shapes/:id/submit" component={ShapesSubmit} />
+      <ProtectedRoute path="/shapes/:id" component={ShapesShow} />
+      <Route exact path="/shapes" component={ShapesIndex} />
+      <ProtectedRoute path="/users/:id" component={UsersShow} />
+      <ProtectedRoute path="/users" component={UsersIndex} />
+      <ProtectedRoute path="/runs/:id" component={RunsShow} />
     </Switch>
   );
 };

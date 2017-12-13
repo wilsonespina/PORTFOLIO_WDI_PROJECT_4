@@ -24,7 +24,7 @@ class OAuthButton extends React.Component {
       })
       .then(() => localStorage.removeItem('provider'))
       .then(() => this.props.history.replace(this.props.location.pathname))
-      .then(() => this.props.history.push('/'));
+      .then(() => this.props.history.push('/shapes'));
   }
 
   setProvider = () => {
