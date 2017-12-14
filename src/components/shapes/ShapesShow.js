@@ -81,8 +81,8 @@ class ShapesShow extends React.Component {
           <hr/>
           <div className="row show-bottom-section">
             <h1>Runs</h1>
-            <Link to="/users"><button>My Runs</button></Link>
-            <Link to={`/shapes/${this.state.shape.id}/submit`}><button>Add my own run</button></Link>
+            <Link to="/users"><p className="btn btn-success">My Runs</p></Link>
+            <Link to={`/shapes/${this.state.shape.id}/submit`}><p className="btn btn-success">Add my own run</p></Link>
 
             { sorted.map(run => {
               return(

@@ -21,8 +21,9 @@ function strava(req, res, next) {
         .then((user) => {
           if(!user) {
             user = new User({
-              username: `${athlete.firstname} ${athlete.lastname}`,
-              image: athlete.profile
+              name: `${athlete.firstname} ${athlete.lastname}`,
+              username: `${athlete.username}`,
+              image: `${athlete.profile}`
             });
           }
 
@@ -34,7 +35,7 @@ function strava(req, res, next) {
           const payload = { userId: user.id };
           const token = jwt.sign(payload, secret, { expiresIn: '1hr' });
 
-          res.json({ message: `Welcome ${user.username}!`, token, access_token });
+          res.json({ message: `Welcome ${user.username}!`, token, access_token, payload });
         });
     })
     .catch(next);

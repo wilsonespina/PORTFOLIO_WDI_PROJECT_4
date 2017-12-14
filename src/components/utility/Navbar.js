@@ -11,7 +11,7 @@ const Navbar = ({ history }) => {
   };
 
   return(
-    <nav className="navbar">
+    <nav className="navbar row">
       <div className="nav-top col-12">
 
       </div>

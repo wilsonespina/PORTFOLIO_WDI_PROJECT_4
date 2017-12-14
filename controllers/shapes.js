@@ -3,7 +3,6 @@ const Shape = require('../models/shape');
 function shapesIndex(req, res, next) {
   Shape
     .find()
-    // .populate('user shape comments.createdBy')
     .exec()
     .then(shapes => res.json(shapes))
     .catch(next);

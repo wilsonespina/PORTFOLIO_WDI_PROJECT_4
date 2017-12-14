@@ -5,6 +5,8 @@ const userSchema = new mongoose.Schema({
   username: { type: String, required: 'Username is required' },
   email: { type: String, unique: 'That email has already been taken', required: 'Email is required' },
   password: { type: String },
+  name: { type: String },
+  image: { type: String },
   stravaId: { type: Number }
 });
 

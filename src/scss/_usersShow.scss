@@ -1,18 +1,78 @@
 div.show-user-profile {
   background-color: green;
+  min-height: 350px;
 }
 
 div.show-user-info {
   background-color: yellow;
+  position: relative;
+}
+
+div.show-users-info-tile {
+  padding: 20px 0 0 0;
+  position: relative;;
 }
 
 div.show-user-runs {
-  background-color: blue;
+  // background-color: blue;
 }
 
 img.show-user-avatar {
-  width: 100%;
+  min-width: 100%;
+  display: block;
   height: auto;
-  // max-width: 100%;
-  margin: auto;
+}
+
+div.show-shape-images {
+  background-color: lightblue;
+  width: 40%;
+  height: 70%;
+  border: 2px solid black;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+}
+
+div.show-gmaps-wrapper {
+  background-color: purple;
+}
+div.show-map-option-1 {
+  background-color: teal;
+}
+div.show-map-option-2 {
+  background-color: pink;
+}
+div.show-map-option-3 {
+  background-color: orange;
+}
+
+img.gmaps-image {
+  width: 100%;
+  border: 2px solid grey;
+}
+
+div.show-users-tile {
+  margin: 10px 0;
+  background-color: #FAFAFA;
+  padding: 5px 0;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+}
+
+.show-view-run-button {
+  // bottom: 0px;
+}
+
+.show-users-map {
+  // position: fixed;
+}
+
+.show-shape-on-map {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  width: 150px;
+  z-index: 30;
+  border: 1px solid grey;
+  padding: 5px 5px 0 0;
 }

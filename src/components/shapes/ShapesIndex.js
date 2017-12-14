@@ -21,7 +21,6 @@ class ShapesIndex extends React.Component {
 
   render() {
 
-
     return (
       <div className="row">
         <div className="main-section col-lg-12">

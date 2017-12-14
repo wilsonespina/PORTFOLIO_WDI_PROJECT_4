@@ -3,7 +3,7 @@ const Run = require('../models/run');
 function runsIndex(req, res, next) {
   Run
     .find()
-    .populate('user shape comments.createdBy')
+    .populate('user shape comments.createdBy ratings.createdBy')
     .exec()
     .then(runs => res.json(runs))
     .catch(next);
@@ -108,7 +108,7 @@ function createRating(req, res, next) {
         run.save();
         return res.status(201).json(run);
       } else {
-        return res.status(500).json({message: 'You cannot rate things twice !!!!!!'});
+        return res.status(500).json({message: 'Sorry you cannot rate this twice'});
       }
     })
     .catch(next);
