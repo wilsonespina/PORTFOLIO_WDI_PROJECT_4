@@ -23,24 +23,23 @@ class ShapesIndex extends React.Component {
 
     return (
       <div className="row">
-        <div className="main-section col-lg-12">
-          <h1>Community Shapes</h1>
+        <div className="shape-index-background">
 
+
+        </div>
+
+        <div className="container">
+          <h1>COMMUNITY SHAPES</h1>
           { this.state.shapes.map(shape => {
             return(
-              <div key={shape.id} className="show-image-tile col-md-12">
-
-                <div className="left-tile col-md-6">
+              <div key={shape.id} className="shape-index-tile col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                <h2 className="show-shape-name">{shape.name} run</h2>
+                <Link to={`/shapes/${shape.id}`}>
                   {shape.image &&
-                    <img src={shape.image} className="shapes-index-img"/>}
-                </div>
-                <div className="right-tile col-md-6">
-                  <Link to={`/shapes/${shape.id}`}>
-                    <h1 className="show-shape-name">{shape.name}</h1>
-                  </Link>
-                  <p>Number of attempted runs in the past:.......</p>
-                  <p>People who have attempted this run:.......</p>
-                </div>
+                    <img src={shape.image} className="shapes-index-img img-responsive"/>}
+                </Link>
+                <p>Number of attempted runs in the past:.......</p>
+                <p>People who have attempted this run:.......</p>
               </div>
             );
           })}

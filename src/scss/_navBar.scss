@@ -32,18 +32,23 @@ div.nav-bottom {
 @media (max-width:500px){.nav-tile-icon{font-size: 34px}};
 
 
-a {
-  text-decoration: none !important;
-  // color: black;
-  h1.nav-trace {
+h1.nav-trace {
     display: inline;
     font-weight: bolder;
     }
-}
 
 .nav-logout-button {
   text-align: right;
   float: right;
   margin: 5px 10px 0 0;
   font-size: 15px;
+}
+
+a.header-link {
+  text-decoration: none;
+  color: #31383C;
+}
+
+a.header-link:hover {
+  opacity: 0.9;
 }

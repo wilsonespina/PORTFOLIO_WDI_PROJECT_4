@@ -118,7 +118,7 @@ class UsersShow extends React.Component {
                     </div>
 
                     <div className="show-users-info-tile col-md-4 col-sm-4 col-xs-4 ">
-                      <img src={run.shape.image} className="show-shape-on-map" />
+                      {/* <img src={run.shape.image} className="show-shape-on-map" /> */}
                       <p>Ran {moment(run.date).startOf('day').fromNow()}</p>
                       <p>Average community rating: {run.averageRating}</p>
                       <h4 className="show-comment-header">Comments:</h4>
@@ -126,7 +126,11 @@ class UsersShow extends React.Component {
                       { run.comments[0] ? <p><em><strong>@{run.comments[0].createdBy.username}</strong></em></p> : 'No comments posted yet'}
                       <br/>
                       <Link to={`/runs/${run.id}`}><p className="btn btn-success show-view-run-button">View run</p></Link>
+                      {/* <img src={run.shape.image} className="show-shape-on-map" /> */}
+
                     </div>
+                    <img src={run.shape.image} className="show-shape-on-map" />
+
                   </div>
                 );
               })}

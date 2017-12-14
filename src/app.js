@@ -20,6 +20,7 @@ class App extends React.Component {
         <div className="container-fluid">
 
           <header>
+            {/* {Auth.isAuthenticated() && <Navbar />} */}
             <Navbar />
             {/* {Auth.isAuthenticated() && <BackButton />} */}
           </header>

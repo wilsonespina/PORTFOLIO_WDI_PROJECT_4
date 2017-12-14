@@ -1,4 +1,22 @@
 img.shapes-index-img {
-  width: 100%;
-  background-size: cover;
+  margin-left: auto;
+	margin-right: auto;
+	display: block;
+}
+
+div.shape-index-tile {
+  background-color: #FAFAFA;
+  min-height: 700px;
+  margin: 10px 0;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+div.shape-index-background {
+  background-image: url("/../../Readme_Files/images/runner_1.jpg");
+  height: 450px;
+}
+
+h2.show-shape-name {
+  text-transform: uppercase;
+  font-family: 'Roboto Condensed', sans-serif;
 }

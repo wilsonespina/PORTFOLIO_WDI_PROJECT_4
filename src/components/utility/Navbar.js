@@ -20,9 +20,7 @@ const Navbar = ({ history }) => {
 
       <div className="nav-middle col-12">
         <Link to="/shapes"><i className="fa fa-th-large nav-tile-icon" aria-hidden="true"></i></Link>
-        {/* {!Auth.isAuthenticated() && <Link to="/login" className="standard-button">Login</Link>} */}
-        {' '}
-        <Link to={`/users/${currentUser.userId}`}><h1 className="nav-trace">TRACE <img src="../../Readme_Files/images/footpath-logo.png" className="foot-icon" /></h1></Link>
+        { currentUser ? <Link to={`/users/${currentUser.userId}`} className="header-link"><h1 className="nav-trace">TRACE <img src="../../Readme_Files/images/footpath-logo.png" className="foot-icon" /></h1></Link> : null}
 
         {Auth.isAuthenticated() && <a href="#" onClick={logout} className="nav-logout-button">Logout</a>}
 
