@@ -3,6 +3,7 @@ import ReactDOM  from 'react-dom';
 import { BrowserRouter as Router } from 'react-router-dom';
 
 import Routes from './components/utility/Routes';
+import Footer from './components/utility/Footer';
 import Navbar from './components/utility/Navbar';
 import Auth from './lib/Auth';
 import BackButton from './components/utility/BackButton';
@@ -28,6 +29,10 @@ class App extends React.Component {
           <main>
             <Routes />
           </main>
+
+          <footer>
+            <Footer />
+          </footer>
 
         </div>
       </Router>

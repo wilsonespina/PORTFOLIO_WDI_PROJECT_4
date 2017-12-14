@@ -7,25 +7,48 @@ import Auth from '../../lib/Auth';
 
 class ShapesIndex extends React.Component {
   state = {
-    shapes: []
+    shapes: [],
+    runs: {}
   }
 
   componentWillMount() {
     Axios
-      .get('/api/shapes', {
-        headers: { Authorization: `Bearer ${Auth.getStravaToken()}`}
-      })
-      .then(res => this.setState({ shapes: res.data }))
+      .all([
+        Axios
+          .get('/api/runs', {
+            headers: { 'Authorization': `Bearer ${Auth.getStravaToken()}`}
+          }),
+        Axios
+          .get('/api/shapes', {
+            headers: { 'Authorization': `Bearer ${Auth.getStravaToken()}`}
+          })
+      ])
+      .then(Axios.spread((runs, shapes) => {
+        this.setState({ runs: runs.data, shapes: shapes.data });
+      }))
       .catch(err => console.log(err));
   }
 
   render() {
+    console.log(this.state);
+
+    const fileteredShape = this.state.runs.filter(run => run.shape.name === this.state.shapes.name);
+
+    console.log(fileteredShape);
+
+    // const filteredRuns = ignoreSlash.filter(run => {
+    //   if (run.shape) {
+    //     return run.shape.id === this.props.match.params.id;
+    //   }
+    // });
+
+
+
 
     return (
       <div className="row">
+
         <div className="shape-index-background">
-
-
         </div>
 
         <div className="container">

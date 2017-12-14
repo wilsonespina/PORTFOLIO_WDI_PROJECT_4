@@ -82,7 +82,8 @@ div.show-users-tile {
   position: absolute;
   bottom: 5px;
   right: 5px;
-  width: 180px;
+  width: auto;
+  height: 50%;
   z-index: 30;
   // border: 1px solid grey;
   padding: 5px 5px 0 0;
