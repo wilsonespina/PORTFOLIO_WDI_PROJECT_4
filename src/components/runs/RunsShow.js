@@ -116,7 +116,7 @@ class RunsShow extends React.Component {
               { this.state.run.user && <div>
                 <h2>Run by: {this.state.run.user.username}</h2>
                 <p>{moment(this.state.run.date).startOf('day').fromNow()}</p>
-                <p>Average rating: {this.state.run.averageRating}</p>,
+                <p>Average rating: {this.state.run.averageRating}</p>
               </div>}
               {this.state.run.user && <button
                 className="btn btn-danger"

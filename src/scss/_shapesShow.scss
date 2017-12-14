@@ -1,3 +1,24 @@
 .show-main-image {
-  width: 500px;
+}
+
+h1.show-shape-name-label {
+
+}
+
+.shape-show-tiles {
+  background-color: #FAFAFA;
+  margin: 10px 0;
+  padding: 20px 5px 5px 5px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.shapes-show-google {
+  margin: 10px 0 0 0;
+}
+
+div.shape-show-background {
+  background-image: url("/../../Readme_Files/images/NWFC_Racer.jpg");
+  height: 450px;
+  background-position: -150px -615px;
+  margin: 0 0 20px 0;
 }

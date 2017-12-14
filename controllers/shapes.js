@@ -3,6 +3,7 @@ const Shape = require('../models/shape');
 function shapesIndex(req, res, next) {
   Shape
     .find()
+    .populate('runs runs.shape runs.user')
     .exec()
     .then(shapes => res.json(shapes))
     .catch(next);

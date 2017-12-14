@@ -32,9 +32,9 @@ class ShapesIndex extends React.Component {
   render() {
     console.log(this.state);
 
-    const fileteredShape = this.state.runs.filter(run => run.shape.name === this.state.shapes.name);
+    // const fileteredShape = this.state.runs.filter(run => run.shape.name === this.state.shapes.name);
 
-    console.log(fileteredShape);
+    // console.log(fileteredShape);
 
     // const filteredRuns = ignoreSlash.filter(run => {
     //   if (run.shape) {
@@ -61,8 +61,9 @@ class ShapesIndex extends React.Component {
                   {shape.image &&
                     <img src={shape.image} className="shapes-index-img img-responsive"/>}
                 </Link>
-                <p>Number of attempted runs in the past:.......</p>
+                <h3>Number of attempted runs: { shape.runs && shape.runs.length }</h3>
                 <p>People who have attempted this run:.......</p>
+                <Link to={`/shapes/${shape.id}`}><p className="btn btn-info btn-lg btn-block">View community runs</p></Link>
               </div>
             );
           })}

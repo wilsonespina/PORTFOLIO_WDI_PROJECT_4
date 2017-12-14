@@ -65,39 +65,57 @@ class ShapesShow extends React.Component {
 
     return (
       <div className="row">
-        <div className="container">
-          <div className="row show-top-section">
-            <div className="col-md-6">
-              <h3>{this.state.shape.name}</h3>
-              <img src={this.state.shape.image} className="show-main-image" />
-            </div>
 
-            <SearchBar
-              handleSort={this.handleSort}
-              handleSearch={this.handleSearch} />
+        <div className="shape-show-background">
+        </div>
+
+
+        <div className="container">
+          <div className="col-xs-4 col-sm-4 col-md-4 col-lg-4 show-top-section">
+            <img src={this.state.shape.image} className="show-main-image img-responsive" />
+          </div>
+
+          <div className="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+
+            <div className="show-gmaps-wrapper row">
+              <h1 className="show-shape-name-label">{this.state.shape.name}</h1>
+              { this.state.shape && <h3>Number of community runs: {filterSort.length}</h3>}
+            </div>
 
           </div>
 
-          <hr/>
+        </div>
+
+        <hr/>
+        <div className="container">
+
           <div className="row show-bottom-section">
             <h1>Runs</h1>
+            <SearchBar
+              handleSort={this.handleSort}
+              handleSearch={this.handleSearch} />
             <Link to="/users"><p className="btn btn-success">My Runs</p></Link>
+            {' '}
             <Link to={`/shapes/${this.state.shape.id}/submit`}><p className="btn btn-success">Add my own run</p></Link>
 
             { sorted.map(run => {
               return(
-                <div key={run.id} className="col-md-10 col-sm-10 col-xs-12">
-                  <Link to={`/runs/${run.id}`}><h2>{run.shape.name}</h2></Link>
+                <div key={run.id} className="col-md-10 col-sm-10 col-xs-12 shape-show-tiles">
+                  {/* <Link to={`/runs/${run.id}`}><h2>{run.shape.name}</h2></Link> */}
                   <p>Rating: {run.averageRating}</p>
                   <p>Runner: {run.user.username}</p>
                   <p>Run Date: {moment(run.date).startOf('day').fromNow()}</p>
                   <p>Start Time: {(run.date).substring(11, 16)}</p>
-                  {run.start_latlng ? <GoogleMap center={{lat: run.start_latlng[0], lng: run.start_latlng[1]}} path={run.summary_polyline} /> : <img src="../../assets/Spinner.gif" />}
+                  <Link to={`/runs/${run.id}`} className="btn btn-info"><p>View run</p></Link>
+                  {run.start_latlng ? <GoogleMap center={{lat: run.start_latlng[0], lng: run.start_latlng[1]}} path={run.summary_polyline} className="shapes-show-google"/> : <img src="../../assets/Spinner.gif" />}
                 </div>
               );
             })}
 
           </div>
+
+
+
         </div>
       </div>
     );
