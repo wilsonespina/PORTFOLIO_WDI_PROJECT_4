@@ -21,7 +21,7 @@ class App extends React.Component {
 
           <header>
             <Navbar />
-            {Auth.isAuthenticated() && <BackButton />}
+            {/* {Auth.isAuthenticated() && <BackButton />} */}
           </header>
 
           <main>

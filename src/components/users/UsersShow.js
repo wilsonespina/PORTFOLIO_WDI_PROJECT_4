@@ -61,43 +61,27 @@ class UsersShow extends React.Component {
 
     return (
       <div className="row">
-        <div className="row show-user-profile">
+        <div className="container show-user-profile">
           <div className="col-xs-4 col-sm-4 col-md-4 col-lg-4 show-user-avatar">
             <img src={this.state.user.image} className="show-user-avatar img-responsive"/>
           </div>
 
           <div className="col-xs-8 col-sm-8 col-md-8 col-lg-8">
             <div className="row show-user-info">
-              <h1>{this.state.user.name}</h1>
+              <h1 className="show-title-name">{this.state.user.name}</h1>
               <h3><em>@{this.state.user.username}</em></h3>
-              <h3>Total number of runs: {this.state.runs.length}</h3>
-              {/* <h2>Last run submitted: </h2> */}
+              <h3>Total number of runs: <strong>{this.state.runs.length}</strong></h3>
 
               <div className="show-shape-images">
                 <div className="row">
-                  {/* { this.state.shapes.image && ( this.state.shapes.map(shape => {
-                    <div key={shape.id} className="col-md-4">
-                      <p>{shape.name}</p>
-                    </div>;
-                  }))} */}
-
-
-                  <div className="col">
-                  </div>
-                  <div className="col">
-                  </div>
-                  <div className="col">
-                  </div>
-
-
-                  <Link to="/shapes"><p className="btn btn-success">Community Shapes</p></Link>
+                  <Link to="/shapes"><p className="btn btn-info btn-lg btn">View community shapes</p></Link>
                 </div>
               </div>
 
             </div>
 
             <div className="show-gmaps-wrapper row">
-              <h3>Choose your map style...</h3>
+              <h4>Choose your map style...</h4>
               <div className="col-xs-4 col-sm-4 col-md-4 col-lg-4 show-map-option-1">
                 <p className="show-map-choices">Black & White</p>
                 <img src="../../assets/gmaps1.png" className="gmaps-image img-responsive"/>
@@ -131,7 +115,6 @@ class UsersShow extends React.Component {
                   <div key={run.id} className="show-users-tile col-md-12 col-sm-12 col-xs-12">
                     <div className="show-users-map col-md-8 col-sm-8 col-xs-8 ">
                       <GoogleMap center={{lat: run.start_latlng[0], lng: run.start_latlng[1]}} path={run.summary_polyline} />
-                      {/* <img src={run.shape.image} className="show-shape-on-map" /> */}
                     </div>
 
                     <div className="show-users-info-tile col-md-4 col-sm-4 col-xs-4 ">

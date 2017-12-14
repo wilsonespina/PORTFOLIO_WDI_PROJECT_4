@@ -35,16 +35,6 @@ class OAuthButton extends React.Component {
       })
       .then(payload => this.props.history.push(`/users/${payload.userId}`))
       .catch(err => console.log(err));
-      // .then(() => localStorage.removeItem('provider'))
-      // .then(() => this.props.history.replace(this.props.location.pathname))
-    // console.log('user after', currentUser)
-      // .then(() => this.props.history.push('/shapes'));
-      // .then(() => this.props.history.push(`/users/${currentUser.userId}`));
-
-    //
-    // axios.post(this.provider.url, data)
-    //   .then(() => this.props.history.push(`/users/${currentUser.userId}`));
-
 
   }
 

@@ -1,10 +1,19 @@
 div.show-user-profile {
-  background-color: green;
+  // background-color: green;
   min-height: 350px;
+  margin-top: 10px;
+}
+
+h1.show-title-name {
+  font-family: 'Roboto Condensed', sans-serif;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-bottom: -20px;
+  font-size: 55px;
 }
 
 div.show-user-info {
-  background-color: yellow;
+  // background-color: yellow;
   position: relative;
 }
 
@@ -21,34 +30,36 @@ img.show-user-avatar {
   min-width: 100%;
   display: block;
   height: auto;
+  margin-top: 20px;
+
 }
 
 div.show-shape-images {
-  background-color: lightblue;
-  width: 40%;
+  // background-color: lightblue;
+  width: 30%;
   height: 70%;
-  border: 2px solid black;
   position: absolute;
-  top: 0px;
+  top: 20px;
   right: 0px;
 }
 
 div.show-gmaps-wrapper {
-  background-color: purple;
+  // background-color: purple;
 }
 div.show-map-option-1 {
-  background-color: teal;
+  // background-color: teal;
 }
 div.show-map-option-2 {
-  background-color: pink;
+  // background-color: pink;
 }
 div.show-map-option-3 {
-  background-color: orange;
+  // background-color: orange;
 }
 
 img.gmaps-image {
   width: 100%;
-  border: 2px solid grey;
+  height: 200px;
+  // border: 1px solid grey;
 }
 
 div.show-users-tile {

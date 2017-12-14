@@ -20,23 +20,30 @@ div.nav-bottom {
 }
 
 .foot-icon {
-  height: 70%;
-  margin: 0 20px;
-  vertical-align: top;
+  height: 50%;
+  margin: 0 10px;
+  vertical-align: bottom;
 }
 
 .nav-tile-icon {
   font-size: 70px;
+  margin: 0 10px;
 }
 @media (max-width:500px){.nav-tile-icon{font-size: 34px}};
 
 
-.nav-trace {
-  display: inline;
+a {
+  text-decoration: none !important;
+  // color: black;
+  h1.nav-trace {
+    display: inline;
+    font-weight: bolder;
+    }
 }
 
 .nav-logout-button {
   text-align: right;
   float: right;
   margin: 5px 10px 0 0;
+  font-size: 15px;
 }
