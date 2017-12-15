@@ -11,6 +11,7 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto+Condensed');
 
 main {
+  margin-top: 160px;
   font-family: 'Open Sans', sans-serif;
 }
 //INDEX PAGE
@@ -50,9 +51,9 @@ button[disabled]{
   }
 }
 
-@media (max-width:500px){.main-button
-  {
-    height: 30px;
-    width: 60px;
-    font-size: 14px;
-  }};
+// @media (max-width:500px){.main-button
+//   {
+//     height: 30px;
+//     width: 60px;
+//     font-size: 14px;
+//   }};

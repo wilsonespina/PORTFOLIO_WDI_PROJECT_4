@@ -18,13 +18,13 @@ class App extends React.Component {
   render() {
     return (
       <Router>
-        <div className="container-fluid">
+        <div>
 
-          <header>
+          <div>
             {/* {Auth.isAuthenticated() && <Navbar />} */}
             <Navbar />
             {/* {Auth.isAuthenticated() && <BackButton />} */}
-          </header>
+          </div>
 
           <main>
             <Routes />
