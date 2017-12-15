@@ -19,6 +19,10 @@ class UsersShow extends React.Component {
     sortDirection: ''
   }
 
+  componentDidMount () {
+    window.scrollTo(0, 0);
+  }
+
   componentWillMount() {
 
     Axios
@@ -74,7 +78,11 @@ class UsersShow extends React.Component {
 
               <div className="show-shape-images">
                 <div className="row">
-                  <Link to="/shapes"><p className="btn btn-info btn-lg btn">View community shapes</p></Link>
+                  <Link to="/shapes"><p className="btn btn-info btn-lg community-btn btn-block"><i className="fa fa-users" aria-hidden="true"></i> View community shapes</p></Link>
+                  {' '}
+                  <Link to="/users"><p className="btn btn-primary btn-lg strava-btn btn-block"><span className="icon"></span> My Strava runs</p></Link>
+
+                  {/* <Link to="/users"><p className="btn btn-success">My Runs</p></Link> */}
                 </div>
               </div>
 
@@ -125,7 +133,7 @@ class UsersShow extends React.Component {
                       { run.comments[0] ? <p>{`"...${run.comments[0].content}..."`}</p> : ' '}
                       { run.comments[0] ? <p><em><strong>@{run.comments[0].createdBy.username}</strong></em></p> : 'No comments posted yet'}
                       <br/>
-                      <Link to={`/runs/${run.id}`}><p className="btn btn-success show-view-run-button">View run</p></Link>
+                      <Link to={`/runs/${run.id}`}><p className="btn btn-info show-view-run-button">View run</p></Link>
                       {/* <img src={run.shape.image} className="show-shape-on-map" /> */}
 
                     </div>

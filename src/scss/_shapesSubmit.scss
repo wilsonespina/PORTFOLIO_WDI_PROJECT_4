@@ -9,5 +9,26 @@ div.shape-submit-right {
 }
 
 img.shapes-submit-shape-img{
-  width: 100%;
+  height: 500px;
+  // width: 45%;
+  position: fixed;
+  // right: 0;
+}
+
+div.show-tile-images {
+  margin: 5px 0;
+  // background-color: #FAFAFA;
+  // box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+
+}
+
+div.image-tile {
+  background-color: #FAFAFA;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  padding: 5px 0 5px 10px;
+}
+
+p.run-date-p {
+  margin: 20px 0 5px 0;
 }

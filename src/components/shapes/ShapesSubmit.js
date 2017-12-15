@@ -13,7 +13,11 @@ class ShapesSubmit extends React.Component {
     shape: {}
   }
 
-  componentDidMount() {
+  componentDidMount () {
+    window.scrollTo(0, 0);
+  }
+
+  componentWillMount() {
     ///////----------*****update*********
 
     // Axios
@@ -70,44 +74,45 @@ class ShapesSubmit extends React.Component {
     console.log();
     return (
       <div className="row">
-        <div className="shape-submit-left col-md-6 col-sm-6 col-xs-12">
-          {this.state.shape.image && <img src={this.state.shape.image} className="shapes-submit-shape-img"/>}
+        <div className="container">
+          <div className="shape-submit-left col-md-6 col-sm-6 col-xs-12">
+            {this.state.shape.image && <img src={this.state.shape.image} className="shapes-submit-shape-img"/>}
+          </div>
+
+
+          <div className="shape-submit-right col-md-6 col-sm-6 col-xs-12">
+            <h1>Choose a run to submit...</h1>
+
+            <form onSubmit={this.handleSubmit}>
+
+              {this.state.runs.map && <div className="show-tile-images">
+                { this.state.runs.map(run => {
+                  return(
+                    <div key={run.id} className="image-tile col-md-12 col-sm-12 col-xs-12 radio">
+                      <button className="btn btn-info">Submit Run!</button>
+
+                      <label className="user-submit-label col-lg-12 col-md-12">
+                        <input
+                          type="radio"
+                          name="map"
+                          onClick={() => this.handleChange(run)}
+                        />
+                        <p className="run-date-p">Run date: {moment(run.start_date_local).startOf('day').fromNow()}</p>
+
+                        {/* {run.summary_polyline ? <GoogleMap center={{lat: run.start_latlng[0], lng: run.start_latlng[1]}} path={run.summary_polyline} /> : <img src="../../assets/Spinner.gif" />} */}
+
+                        <GoogleMap center={{lat: run.start_latlng[0], lng: run.start_latlng[1]}} path={run.map.summary_polyline} />
+                      </label>
+
+
+                    </div>
+                  );
+                })}
+              </div>}
+            </form>
+          </div>
+
         </div>
-
-
-        <div className="shape-submit-right col-md-6 col-sm-6 col-xs-12">
-          <h1>Choose a run to submit...</h1>
-
-          <form onSubmit={this.handleSubmit}>
-
-            {this.state.runs.map && <div>
-              { this.state.runs.map(run => {
-                return(
-                  <div key={run.id} className="image-tile col-md-12 col-sm-12 col-xs-12">
-                    <button>Submit Run!</button>
-
-                    <label className="user-submit-label col-lg-12 col-md-12">
-                      <input
-                        type="radio"
-                        name="map"
-                        onClick={() => this.handleChange(run)}
-                      />
-                      <p>Run date: {moment(run.start_date_local).startOf('day').fromNow()}</p>
-
-                      {/* {run.summary_polyline ? <GoogleMap center={{lat: run.start_latlng[0], lng: run.start_latlng[1]}} path={run.summary_polyline} /> : <img src="../../assets/Spinner.gif" />} */}
-
-                      <GoogleMap center={{lat: run.start_latlng[0], lng: run.start_latlng[1]}} path={run.map.summary_polyline} />
-
-                    </label>
-
-                  </div>
-                );
-              })}
-            </div>}
-          </form>
-        </div>
-
-
       </div>
 
     );

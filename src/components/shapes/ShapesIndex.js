@@ -11,6 +11,10 @@ class ShapesIndex extends React.Component {
     runs: {}
   }
 
+  componentDidMount () {
+    window.scrollTo(0, 0);
+  }
+
   componentWillMount() {
     Axios
       .all([
@@ -63,7 +67,7 @@ class ShapesIndex extends React.Component {
                 </Link>
                 <h3>Number of attempted runs: { shape.runs && shape.runs.length }</h3>
                 <p>People who have attempted this run:.......</p>
-                <Link to={`/shapes/${shape.id}`}><p className="btn btn-info btn-lg btn-block">View community runs</p></Link>
+                <Link to={`/shapes/${shape.id}`}><p className="btn btn-info btn-lg btn-block"><i className="fa fa-eye" aria-hidden="true"></i> View community runs</p></Link>
               </div>
             );
           })}

@@ -15,6 +15,7 @@ class Login extends React.Component {
         <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6 login-right">
 
           <div className="button-wrapper">
+            <h1 className="nav-trace-login">TRACE <img src="../../Readme_Files/images/footpath-logo.png" className="foot-icon-login" /></h1>
             <OAuthButton provider="strava"><span className="icon"></span> Login with Strava</OAuthButton>
             <br/>
             <a

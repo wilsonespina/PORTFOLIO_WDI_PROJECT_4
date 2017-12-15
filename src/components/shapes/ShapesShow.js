@@ -19,6 +19,11 @@ class ShapesShow extends React.Component {
     query: ''
   }
 
+  componentDidMount () {
+    window.scrollTo(0, 0);
+  }
+
+
   componentWillMount() {
     Axios
       .all([
@@ -70,7 +75,7 @@ class ShapesShow extends React.Component {
         </div>
 
 
-        <div className="container">
+        <div className="container shape-show-top-container">
           <div className="col-xs-4 col-sm-4 col-md-4 col-lg-4 show-top-section">
             <img src={this.state.shape.image} className="show-main-image img-responsive" />
           </div>
@@ -78,7 +83,7 @@ class ShapesShow extends React.Component {
           <div className="col-xs-8 col-sm-8 col-md-8 col-lg-8">
 
             <div className="show-gmaps-wrapper row">
-              <h1 className="show-shape-name-label">{this.state.shape.name}</h1>
+              <h1 className="show-shape-name-label ">{this.state.shape.name}</h1>
               { this.state.shape && <h3>Number of community runs: {filterSort.length}</h3>}
             </div>
 
@@ -94,9 +99,9 @@ class ShapesShow extends React.Component {
             <SearchBar
               handleSort={this.handleSort}
               handleSearch={this.handleSearch} />
-            <Link to="/users"><p className="btn btn-success">My Runs</p></Link>
+            <Link to="/users"><p className="btn btn-primary strava-btn btn-lg"><span className="icon"></span> My Strava runs</p></Link>
             {' '}
-            <Link to={`/shapes/${this.state.shape.id}/submit`}><p className="btn btn-success">Add my own run</p></Link>
+            <Link to={`/shapes/${this.state.shape.id}/submit`}><p className="btn btn-primary btn-lg"><i className="fa fa-plus-circle" aria-hidden="true"></i> Add my own run</p></Link>
 
             { sorted.map(run => {
               return(
@@ -106,7 +111,7 @@ class ShapesShow extends React.Component {
                   <p>Runner: {run.user.username}</p>
                   <p>Run Date: {moment(run.date).startOf('day').fromNow()}</p>
                   <p>Start Time: {(run.date).substring(11, 16)}</p>
-                  <Link to={`/runs/${run.id}`} className="btn btn-info"><p>View run</p></Link>
+                  <Link to={`/runs/${run.id}`} className="btn btn-info view-info-button"><p><i className="fa fa-eye" aria-hidden="true"></i> View run</p></Link>
                   {run.start_latlng ? <GoogleMap center={{lat: run.start_latlng[0], lng: run.start_latlng[1]}} path={run.summary_polyline} className="shapes-show-google"/> : <img src="../../assets/Spinner.gif" />}
                 </div>
               );

@@ -23,6 +23,10 @@ class RunsShow extends React.Component {
     errors: null
   }
 
+  componentDidMount () {
+    window.scrollTo(0, 0);
+  }
+
   componentWillMount() {
     this.getRun();
   }
@@ -105,16 +109,16 @@ class RunsShow extends React.Component {
         <div className="container">
           <div className="col-md-6 runs-show-left">
             { this.state.run.summary_polyline && <div>
-              <h3>{this.state.run.shape.name}</h3>,
-              <img src={this.state.run.shape.image} className="runs-show-shape-img"/>,
+              {/* <h3>{this.state.run.shape.name}</h3>, */}
               <GoogleMap center={{lat: this.state.run.start_latlng[0], lng: this.state.run.start_latlng[1]}} path={this.state.run.summary_polyline} />,
+              <img src={this.state.run.shape.image} className="runs-show-shape-img"/>,
             </div>}
           </div>
 
           <div className="col-md-6 runs-show-right">
             <div className="run-show-info-box">
               { this.state.run.user && <div>
-                <h2>Run by: {this.state.run.user.username}</h2>
+                <h2>Run by <em>@{this.state.run.user.username}</em></h2>
                 <p>{moment(this.state.run.date).startOf('day').fromNow()}</p>
                 <p>Average rating: {this.state.run.averageRating}</p>
               </div>}
