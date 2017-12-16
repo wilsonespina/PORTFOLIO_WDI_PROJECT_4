@@ -41,7 +41,7 @@ module.exports = {
     open: true,
     proxy: {
       '/api': {
-        target: 'https://protected-spire-24454.herokuapp.com/',
+        target: 'https://protected-spire-24454.herokuapp.com',
         secure: false
       }
     }
