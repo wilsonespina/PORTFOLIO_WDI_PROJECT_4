@@ -18,7 +18,7 @@ div.login-all {
 
   width: 100%;
   height: 100%;
-  z-index: 200;
+  z-index: 501;
 }
 
 //buttons
@@ -46,6 +46,8 @@ img.foot-icon-login {
 h1.nav-trace-login {
   font-weight: bolder;
   font-size: 85px;
+  text-shadow: 1px 1px 2px #A8A9A9, 0 0 25px #F1F4E3, 0 0 5px #D2D5D4;
+  font-family: 'Maven Pro', sans-serif;
 //     text-shadow:
 //     -1px -1px 0 #000,
 //     1px -1px 0 #000,
