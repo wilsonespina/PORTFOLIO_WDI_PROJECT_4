@@ -1,10 +1,10 @@
 import React from 'react';
-import Auth from '../../lib/Auth';
 import { Link, withRouter } from 'react-router-dom';
 
-const Footer = () => {
+const Footer = ({ history }) => {
 
-  // const currentUser = Auth.getPayload();
+  if (history.location.pathname === '/login') return null;
+
   return(
     <div className="footer-footer">
     </div>

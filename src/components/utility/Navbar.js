@@ -11,6 +11,9 @@ const Navbar = ({ history }) => {
   };
 
   const currentUser = Auth.getPayload();
+
+  if (history.location.pathname === '/login') return null;
+
   return(
     <div className="navall">
 

@@ -6,15 +6,14 @@ import OAuthButton from './OAuthButton';
 class Login extends React.Component {
   render() {
     const iconStyle = {
-      background: 'url(/../../src/assets/Strava_Logo.jpg)',
+      background: 'url(https://s3-eu-west-1.amazonaws.com/wdi-30-ldn/wdi-project-4/Strava_Logo.jpg)',
       height: '20px',
       width: '20px',
       display: 'inline-block',
       'background-size': 'cover'
     };
 
-    const stravaStyle = 'https://s3-eu-west-1.amazonaws.com/wdi-30-ldn/footpath-logo.png';
-
+    const stravaStyle = 'https://s3-eu-west-1.amazonaws.com/wdi-30-ldn/wdi-project-4/footpath-logo.png';
 
     return (
       <div className="login-all">
