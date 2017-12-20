@@ -3,7 +3,7 @@ import OAuthButton from './OAuthButton';
 
 class Login extends React.Component {
   render() {
-    const iconStyle = {
+    const stravaStyle = {
       background: 'url(https://s3-eu-west-1.amazonaws.com/wdi-30-ldn/wdi-project-4/Strava_Logo.jpg)',
       height: '20px',
       width: '20px',
@@ -11,7 +11,7 @@ class Login extends React.Component {
       'background-size': 'cover'
     };
 
-    const stravaStyle = 'https://s3-eu-west-1.amazonaws.com/wdi-30-ldn/wdi-project-4/footpath-logo.png';
+    const iconStyle = 'https://s3-eu-west-1.amazonaws.com/wdi-30-ldn/wdi-project-4/footpath-logo.png';
 
     return (
       <div className="login-all">
@@ -22,8 +22,8 @@ class Login extends React.Component {
         <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6 login-right">
 
           <div className="button-wrapper">
-            <h1 className="nav-trace-login">TRACE <img src={stravaStyle} className="foot-icon-login" /></h1>
-            <OAuthButton provider="strava"><p><span className="icon" style={iconStyle}></span> Login with Strava</p></OAuthButton>
+            <h1 className="nav-trace-login">TRACE <img src={iconStyle} className="foot-icon-login" /></h1>
+            <OAuthButton provider="strava"><p><span className="icon" style={stravaStyle}></span> Login with Strava</p></OAuthButton>
             <br/>
             <a
               className="btn btn-primary"
