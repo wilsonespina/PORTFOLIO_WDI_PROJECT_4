@@ -13,6 +13,8 @@ class Login extends React.Component {
       'background-size': 'cover'
     };
 
+    const stravaStyle = 'https://s3-eu-west-1.amazonaws.com/wdi-30-ldn/footpath-logo.png';
+
 
     return (
       <div className="login-all">
@@ -23,7 +25,7 @@ class Login extends React.Component {
         <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6 login-right">
 
           <div className="button-wrapper">
-            <h1 className="nav-trace-login">TRACE <img src='../../src/assets/icons/footpath-logo.png' className="foot-icon-login" /></h1>
+            <h1 className="nav-trace-login">TRACE <img src={stravaStyle} className="foot-icon-login" /></h1>
             <OAuthButton provider="strava"><p><span className="icon" style={iconStyle}></span> Login with Strava</p></OAuthButton>
             <br/>
             <a
