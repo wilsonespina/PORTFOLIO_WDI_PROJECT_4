@@ -2,12 +2,9 @@ import React from 'react';
 import moment from 'moment';
 import Auth from '../../lib/Auth';
 
-// import BackButton from '../utility/BackButton';
-
 function RunsComments({ run, comment, submitComment, handleChange, deleteComment }) {
   const currentUser = Auth.getPayload();
   const deleteButton = {
-    // display: 'inline-block'
   };
 
   return (
@@ -47,7 +44,6 @@ function RunsComments({ run, comment, submitComment, handleChange, deleteComment
           <button className="btn-info">POST</button>
         </div>
       </form>
-
 
     </div>
   );

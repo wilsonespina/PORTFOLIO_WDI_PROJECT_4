@@ -3,18 +3,12 @@ import OAuth from '../../lib/OAuth';
 import Auth from '../../lib/Auth';
 import { withRouter } from 'react-router-dom';
 import queryString from 'query-string';
-import { Link } from 'react-router-dom';
 
 import axios from 'axios';
-
 
 class OAuthButton extends React.Component {
 
   componentWillMount() {
-
-    // const currentUser = Auth.getPayload();
-    // console.log(currentUser);
-
     this.provider = OAuth.getProvider(this.props.provider);
 
     if(!location.search.match(/code/) || localStorage.getItem('provider') !== this.provider.name) return false;
@@ -45,10 +39,8 @@ class OAuthButton extends React.Component {
 
   render(){
     const provider = OAuth.getProvider(this.props.provider);
-    const currentUser = Auth.getPayload();
 
     return (
-      // <Link to={`/users/${currentUser.userId}`}>
       <a
         className="btn btn-primary strava-login-button"
         id="login-button"

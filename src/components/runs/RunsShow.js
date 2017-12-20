@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import Axios from 'axios';
 import ReactStars from 'react-stars';
 import moment from 'moment';
@@ -7,7 +6,6 @@ import moment from 'moment';
 import RunsComments from './RunsComments';
 import Auth from '../../lib/Auth';
 import GoogleMap from '../utility/GoogleMap';
-// import Auth from '../../lib/Auth';
 
 class RunsShow extends React.Component {
   state = {
@@ -84,7 +82,6 @@ class RunsShow extends React.Component {
 
   handleRatingChange = (userRating) => {
     this.setState({ userRating }, () => {
-      console.log('change', this.state);
     });
   }
 
@@ -103,7 +100,7 @@ class RunsShow extends React.Component {
 
   render() {
     const currentUser = Auth.getPayload();
-    console.log(this.state);
+
     return (
       <div className="row">
         <div className="container">

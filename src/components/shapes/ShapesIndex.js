@@ -1,7 +1,6 @@
 import React from 'react';
 import Axios from 'axios';
 import { Link } from 'react-router-dom';
-// import _ from 'lodash';
 
 import Auth from '../../lib/Auth';
 
@@ -34,21 +33,7 @@ class ShapesIndex extends React.Component {
   }
 
   render() {
-    console.log(this.state);
-
-    // const fileteredShape = this.state.runs.filter(run => run.shape.name === this.state.shapes.name);
-
-    // console.log(fileteredShape);
-
-    // const filteredRuns = ignoreSlash.filter(run => {
-    //   if (run.shape) {
-    //     return run.shape.id === this.props.match.params.id;
-    //   }
-    // });
-
-
-
-
+    
     return (
       <div className="row">
 

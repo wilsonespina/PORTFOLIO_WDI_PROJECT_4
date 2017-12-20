@@ -1,8 +1,6 @@
 import React from 'react';
 import OAuthButton from './OAuthButton';
 
-// import loginBackground from '../../src/assets/icons/footpath-logo.png';
-
 class Login extends React.Component {
   render() {
     const iconStyle = {
@@ -35,7 +33,6 @@ class Login extends React.Component {
             >Register for Strava account
             </a>
           </div>
-
 
         </div>
       </div>

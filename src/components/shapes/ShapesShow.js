@@ -4,7 +4,6 @@ import Axios from 'axios';
 import moment from 'moment';
 import _ from 'lodash';
 
-// import BackButton from '../utility/BackButton';
 import SearchBar from '../utility/SearchBar';
 import GoogleMap from '../utility/GoogleMap';
 import Auth from '../../lib/Auth';
@@ -22,7 +21,6 @@ class ShapesShow extends React.Component {
   componentDidMount () {
     window.scrollTo(0, 0);
   }
-
 
   componentWillMount() {
     Axios
@@ -65,8 +63,6 @@ class ShapesShow extends React.Component {
     const sorted = _.filter(filterSort, (run) => regex.test([run.user.username]));
 
     if (!this.state.shape) return null;
-    // console.log(this.state.runs);
-    console.log('sorted', sorted);
 
     return (
       <div className="row">
@@ -118,8 +114,6 @@ class ShapesShow extends React.Component {
             })}
 
           </div>
-
-
 
         </div>
       </div>

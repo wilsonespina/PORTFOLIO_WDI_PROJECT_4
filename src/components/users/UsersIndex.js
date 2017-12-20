@@ -5,9 +5,7 @@ import moment from 'moment';
 
 import GoogleMap from '../utility/GoogleMap';
 import Auth from '../../lib/Auth';
-// import _ from 'lodash';
 
-// import SearchBar from '../utility/SearchBar';
 class UsersIndex extends React.Component {
   state = {
     runs: [],
@@ -36,9 +34,7 @@ class UsersIndex extends React.Component {
   }
 
   render() {
-    // console.log(this.state.runs);
     const currentUser = Auth.getPayload();
-    console.log(currentUser);
 
     return (
       <div>
