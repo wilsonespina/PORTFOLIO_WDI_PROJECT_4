@@ -42,7 +42,7 @@ In my initial concept, I had originally planned for the app to based around peop
 Throughout the project, I organised sprints by planning and prioritising tasks using Trello. All features and.
 
 
-![Trello board](Readme_Files/images/Trello_Screenshot_06_12_17.PNG)
+![Trello board](Readme_Files/images/Trello_Screenshot_06_12_17.jpg)
 
 *(Figure 2 - Trello board used to plan and monitor the project throughout the week)*
 
@@ -53,7 +53,7 @@ The initial
 
 Adobe Xd allows users to open up your app on mobile....
 
-![Wireframes](Readme_Files/images/AdobeXD_screenshot_05_12_17.PNG)
+![Wireframes](Readme_Files/images/AdobeXD_screenshot_05_12_17.jpg)
 *(Figure 3 - Wireframing and protyping on Adobe Xd)*
 
 
