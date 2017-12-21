@@ -75,7 +75,7 @@ The website includes the ability to rate and comment on submitted runs and as we
 
 
 
-![Final App](Readme_Files/images/screenshot_combined.PNG)
+![Final App](Readme_Files/images/screenshot_combined.jpg)
 *(Figure 4 - Screenshots from the final product)*
 
 
