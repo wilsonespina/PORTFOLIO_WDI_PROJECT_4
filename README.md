@@ -27,7 +27,7 @@ The following tech was used in my fourth project:
 
 ## PLANNING
 
-### Initial Idea
+### Initial Ideas
 
 During the initial planning phase, I sketched out a fews ideas on paper and investigated the quality of information available from various APIs. I knew I wanted to create something linked to fitness and health and I found that Strava, an app I used regularly, happened to produce detailed JSON information from their API.
 
@@ -39,9 +39,11 @@ In my initial concept, I had originally planned for the app to based around peop
 
 ### Project Planning
 
-Throughout the project, I planned out days and kept track of Agile sprints using Trello.
+Throughout the project, I organised sprints by planning and prioritising tasks using Trello. All features and.
 
-![Trello board](Readme_Files/images/Trello_Screenshot 06_12_17.PNG)
+
+![Trello board](Readme_Files/images/Trello_Screenshot_06_12_17.PNG)
+
 *(Figure 2 - Trello board used to plan and monitor the project throughout the week)*
 
 
@@ -51,7 +53,7 @@ The initial
 
 Adobe Xd allows users to open up your app on mobile....
 
-![Wireframes](Readme_Files/images/AdobeXD_screenshot 05_12_17.PNG)
+![Wireframes](Readme_Files/images/AdobeXD_screenshot_05_12_17.PNG)
 *(Figure 3 - Wireframing and protyping on Adobe Xd)*
 
 
