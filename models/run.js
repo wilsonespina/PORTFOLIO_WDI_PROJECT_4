@@ -51,7 +51,6 @@ runSchema
   .virtual('averageRating')
   .get(calculateRating);
 
-module.exports = mongoose.model('Run', runSchema);
 
 function calculateRating() {
   if (this.ratings.length === 0) return 'TBC';
@@ -64,3 +63,5 @@ function calculateRating() {
 
   return parseFloat( (sum/ratings.length).toFixed(1) );
 }
+
+module.exports = mongoose.model('Run', runSchema);
