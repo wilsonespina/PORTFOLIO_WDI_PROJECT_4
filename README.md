@@ -11,7 +11,7 @@
 My final project at General Assembly was to create a full MERN stack application with an open scope to create a RESTful site, achievable within a week. The site ended up being a social exercising platform which encourages people to compete and upload the best running traces they’ve saved on the social exercise app, [Strava](https://www.strava.com/). I combined map data received from the Strava API and with the Google Maps API to give a visual representation of run activities. 
 
 
-The following tech was used in my fourth project:
+### Programming and Technology Library:
 
 * Mongo, Express, ReactJS, Node.js
 * JSX
@@ -49,12 +49,12 @@ Throughout the project, I organised sprints by planning tasks on a  Trello board
 
 ### Wireframe and prototyping
 
-After finalising the intial concept, I wireframed the designs to help visualise the user experience journey and come up with the basic layouts for each page. I used Adobe Xd to both wireframe and prototype the concept, meaning that I had working button links. This made it easier to decide on what information was needed on each page.
+After finalising the initial concept, I wire-framed the designs to help visualise the user experience journey and come up with the basic layouts for each page. I used Adobe Xd to both wireframe and prototype the concept, meaning that I had working button links. This made it easier to decide on what information was needed on each page.
 
 My intention was to create a fully mobile responsive app so that users would be able to both plan out and view their run data when being outside. Adobe Xd allows users to open up the wireframe designs on your mobile which aided in the design process.
 
 ![Wireframes](Readme_Files/images/AdobeXD_screenshot_05_12_17.jpg)
-> *Figure 3 - Wireframing and protyping on Adobe Xd*
+> *Figure 3 - Wire-framing and prototyping on Adobe Xd*
 
 
 ## FEATURES
@@ -113,17 +113,17 @@ The comments feature allows people to leave a comment on submitted runs and is s
 
 ## THE FINAL APP
 
-The look and feel of the final app was intended to use a simple colour palette. Many of the pages use large images of people running to maintain the sporty theme throughout. i used Bootstrap to create a grid layout and tried to keep the sytling simple on each page, with icons being added from the font-awesome site to add finer details
+The look and feel of the final app was intended to use a simple colour palette. Many of the pages use large images of people running to maintain the sporty theme throughout. i used Bootstrap to create a grid layout and tried to keep the styling simple on each page, with icons being added from the font-awesome site to add finer details
 
 ![Final App](Readme_Files/images/screenshot_combined.jpg)
 > *Figure 5 - Screenshots from the final product*
 
 ### Lessons Learned
 
-As with any project, there were many issues I stumbled accross and there were also many lessons to be learned as a take away including:
+As with any project, there were many issues I stumbled across and there were also many lessons to be learned as a take away including:
 
-1. Try to understand what pages a user would need to see when a user initally logs in. At the beginning of the process, it took a while to completely get my head around how a user would interact with my site, i.e. first having a landing page, then moving onto the users show page.
-2. A lot of functionality is much more suitable to be placed in the back end. Before starting, I was not fully aware of the process of creating virtual or being able to add data validation. However after inclduing these features, it makes myc more sense to do so.
+1. Try to understand what pages a user would need to see when a user initially logs in. At the beginning of the process, it took a while to completely get my head around how a user would interact with my site, i.e. first having a landing page, then moving onto the users show page.
+2. A lot of functionality is much more suitable to be placed in the back end. Before starting, I was not fully aware of the process of creating virtual or being able to add data validation. However after including these features, it makes much more sense to do so.
 3. I also learnt that when including Google Maps, they can be highly customisable. Through reading the Google documentation, I was able to a different coloured line for the 'trace' and was able to choose map styles via [snazzymaps](https://snazzymaps.com).
 
 
@@ -133,7 +133,7 @@ Given a week-long timeframe, the scope of the project needed to be suitable and 
 
 1. Make the entire site more mobile responsive.
 2. Include multiple Google Maps styles and the functionality to be able to choose them on the users show page. At the moment, these are simply placeholder images.
-3. Integreate waypoints selector feature on Google Maps to make the app more usuable before recording a run.
+3. Integrate waypoints selector feature on Google Maps to make the app more useable before recording a run.
 4. Include the ability to access bike rides as well as runs.
 5. Add extra styling features including rating stars instead of just numbers.
 6. Adding additional comments functionality to make comments appear on either the left or right hand side of the comments box according to who has submitted the comment.
