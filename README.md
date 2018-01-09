@@ -25,6 +25,7 @@ My final project at General Assembly was to create a full MERN stack application
 * webpack
 * Chai
 * Mocha
+* react-stars 
 
 ## PLANNING
 
