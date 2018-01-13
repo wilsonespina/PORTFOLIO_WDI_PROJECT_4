@@ -5,10 +5,9 @@
 
 ![Landing Page](Readme_Files/images/screenshot_landing.jpg)
 
-
 ## SUMMARY
 
-My final project at General Assembly was to create a full MERN stack application with an open scope to create a RESTful site, achievable within a week. The site ended up being a social exercising platform which encourages people to compete and upload the best running traces they’ve saved on the social exercise app, [Strava](https://www.strava.com/). I combined map data received from the Strava API and with the Google Maps API to give a visual representation of run activities. 
+My final project at General Assembly was to create a full MERN stack application with an open scope to create a RESTful site, achievable within a week. The site ended up being a social exercising platform which encourages people to compete and upload the best running traces they’ve saved on the social exercise app, [Strava](https://www.strava.com/). I combined map data received from the Strava API and with the Google Maps API to give a visual representation of run activities.
 
 
 ### Programming and Technology Library:
@@ -25,7 +24,7 @@ My final project at General Assembly was to create a full MERN stack application
 * webpack
 * Chai
 * Mocha
-* react-stars 
+* react-stars
 
 ## PLANNING
 
