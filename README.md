@@ -1,6 +1,9 @@
 # ![](https://ga-dash.s3.amazonaws.com/production/assets/logo-9f88ae6c9c3871690e33280fcf557f33.png) WDI Project 4: MERN Stack - 'TRACE'
 
-Adding additional features to WDI_PROJECT_4 - Original project **[https://running-trace.herokuapp.com/](https://running-trace.herokuapp.com/)**
+Adding additional features to WDI_PROJECT_4 -
+Original project - **[https://running-trace.herokuapp.com/](https://running-trace.herokuapp.com/)**
+
+Updated app - **[https://portfolio-project-4.herokuapp.com/](https://portfolio-project-4.herokuapp.com/)**
 
 ![Landing Page](Readme_Files/images/screenshot_landing.jpg)
 
