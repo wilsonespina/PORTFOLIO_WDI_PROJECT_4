@@ -5,7 +5,7 @@ class OAuth {
     name: 'strava',
     url: '/api/oauth/strava',
     authEndpoint: 'https://strava.com/oauth/authorize',
-    clientId: '21848'
+    clientId: '22748'
   }];
 
   static getAuthLink(provider) {
